@@ -1,5 +1,6 @@
+#include <iostream>
 int main()
 {
-	//test
+	std::cout << "lol" << std::endl;
 	return 0;
 }

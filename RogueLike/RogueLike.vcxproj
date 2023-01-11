@@ -76,10 +76,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Documents\GitHub\RogueLike\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -90,12 +94,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Documents\GitHub\RogueLike\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -105,13 +113,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>..\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Documents\GitHub\RogueLike\SFML\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -122,14 +130,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Documents\GitHub\RogueLike\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

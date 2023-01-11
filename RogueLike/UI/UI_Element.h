@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Object/Object.h"
+#include "../Object/Object.h"
 #include <SFML/Graphics.hpp>
 
 class UI_Element : public Object

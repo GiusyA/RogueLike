@@ -5,6 +5,8 @@
 #include "../UI/Manager/UI_ElementManager.h"
 #include <format>
 
+#pragma warning(disable: 4244)
+
 #pragma region constructor/destructor
 Window::Window(const float _width, const float _height, const char* _title)
 {

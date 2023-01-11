@@ -1,0 +1,27 @@
+﻿  UI_Button.cpp
+D:\Documents\GitHub\RogueLike\RogueLike\UI\Button\UI_Button.cpp(41,132): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\UI\Button\UI_Button.cpp(41,114): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  UI_Image.cpp
+  UI_Label.cpp
+  UI_ElementManager.cpp
+  UI_Element.cpp
+  BaseMenu.cpp
+  Window.cpp
+  Generating Code...
+  RogueLike.vcxproj -> D:\Documents\GitHub\RogueLike\x64\Debug\RogueLike.exe
