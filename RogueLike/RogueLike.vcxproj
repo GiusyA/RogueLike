@@ -83,7 +83,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -103,7 +103,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,7 +119,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,14 +139,19 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Documents\GitHub\RogueLike\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="Inventory\Item\Heal\Heal.cpp" />
     <ClCompile Include="Input\Input.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Item\Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Object\GameObject\GameObject.cpp" />
     <ClCompile Include="Object\GameObject\Manager\GameObjectManager.cpp" />
+    <ClCompile Include="Entity\Player\Player.cpp" />
     <ClCompile Include="UI\Button\UI_Button.cpp" />
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp" />
     <ClCompile Include="UI\Image\UI_Image.cpp" />
@@ -157,12 +162,17 @@
     <ClCompile Include="Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Entity.h" />
     <ClInclude Include="Event\Delegate\Delegate.h" />
     <ClInclude Include="Event\Event.h" />
+    <ClInclude Include="Inventory\Item\Heal\Heal.h" />
     <ClInclude Include="Input\Input.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Item\Item.h" />
     <ClInclude Include="Object\GameObject\GameObject.h" />
     <ClInclude Include="Object\GameObject\Manager\GameObjectManager.h" />
     <ClInclude Include="Object\Object.h" />
+    <ClInclude Include="Entity\Player\Player.h" />
     <ClInclude Include="Singleton\Singleton.h" />
     <ClInclude Include="Time\Time.h" />
     <ClInclude Include="UI\Button\UI_Button.h" />
