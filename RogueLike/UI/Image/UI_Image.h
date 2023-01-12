@@ -23,6 +23,8 @@ public:
 #pragma endregion methods
 #pragma region override
 public:
+public:
+	virtual sf::Sprite* GetSprite();
 	virtual void Draw(Window* _window) override;
 	virtual void SetOrigin(const sf::Vector2f& _origin) override;
 	virtual void SetPosition(const sf::Vector2f& _position) override;

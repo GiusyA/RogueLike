@@ -1,20 +1,29 @@
 #include "Item.h"
 #include "../../Entity/Entity.h"
+#include "../../UI/Image/UI_Image.h"
 
 #pragma region constructor
-Item::Item(std::string _name, bool _stackable, int _stack, int _maxStack)
+Item::Item(std::string _pathTexture, std::string _name, bool _stackable, int _stack, int _maxStack)
 {
 	name = _name;
 	stackable = _stackable;
 	stack = _stack;
 	maxStack = _maxStack;
+
+	sprite = new sf::Sprite();
+	texture = new sf::Texture();
+	sprite->setPosition(0, 0);
+	if (texture->loadFromFile(_pathTexture)) {
+		sprite->setTexture(*texture);
+		drawable = sprite;
+	}
 }
 
-Item::Item(std::string _name, int _maxStack) :
-	Item(_name, true, 1, _maxStack) { }
+Item::Item(std::string _pathTexture, std::string _name, int _maxStack) :
+	Item(_pathTexture, _name, true, 1, _maxStack) { }
 
 
-Item::Item(std::string _name) : Item(_name, false, 1, 1) { }
+Item::Item(std::string _pathTexture, std::string _name) : Item(_pathTexture, _name, false, 1, 1) { }
 
 Item::Item(const Item& _copy)
 {
@@ -26,6 +35,10 @@ Item::Item(const Item& _copy)
 #pragma endregion constructor
 
 #pragma region methods
+std::string Item::GetName() const
+{
+	return name;
+}
 bool Item::IsStackable() const
 {
 	return stackable;
@@ -74,14 +87,37 @@ void Item::SetMaxStack(const int _amount)
 	maxStack = _amount;
 }
 
+sf::Sprite* Item::GetSprite()
+{
+	return sprite;
+}
+
 void Item::OnUse(Entity* _entity)
 {
 	RemoveStack(1);
 }
 
-
-bool Item::Equals(Item* _item)
+void Item::OnUse(Player* _player)
 {
-	return false;
+
+}
+
+std::string Item::ToString() const
+{
+	return "";
+}
+
+
+bool Item::Equals(const Item* _item) const
+{
+	return name == _item->name;
+}
+sf::FloatRect Item::GetGlobalBounds() const
+{
+	return sf::FloatRect();
+}
+sf::Vector2f Item::Position() const
+{
+	return sf::Vector2f();
 }
 #pragma endregion methods

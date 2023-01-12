@@ -1,5 +1,11 @@
 #include "Entity.h"
 
+Entity::Entity(std::string _name, const float _life)
+{
+	name = _name;
+	life = _life;
+}
+
 std::string Entity::GetName() const
 {
 	return name;

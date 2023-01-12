@@ -45,6 +45,10 @@ sf::FloatRect UI_Image::GetGlobalBounds() const
 #pragma endregion methods
 
 #pragma region override
+sf::Sprite* UI_Image::GetSprite()
+{
+	return sprite;
+}
 void UI_Image::Draw(Window* _window)
 {
 	if (sprite != nullptr)
