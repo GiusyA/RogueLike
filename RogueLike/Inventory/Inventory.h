@@ -43,6 +43,15 @@ private:
 	/// </summary>
 	/// <param name="_item">Item*</param>
 	void DisplayItem(Window* _owner, Item* _item, const int& _width, const int& _height);
+
+	/// <summary>
+	/// Display spells in slot
+	/// </summary>
+	/// <param name="_owner">Window*</param>
+	/// <param name="_spell">Spells*</param>
+	/// <param name="_width">int</param>
+	/// <param name="_height">int</param>
+	void DisplaySpell(Window* _owner, Spells* _spell, const int& _width, const int& _height);
 public:
 	/// <summary>
 	/// Check if player has spells
@@ -75,7 +84,6 @@ public:
 	/// <param name="_amount">int</param>
 	/// <returns>Boolean</returns>
 	bool RemoveItem(Item* _item, const int& _amount = 1);
-	Item* GetItemAtSlot(const int& _slot);
 	/// <summary>
 	/// Clear totally of inventory
 	/// </summary>
@@ -104,6 +112,15 @@ public:
 	/// <param name="_height">int</param>
 	/// <param name="_gap">int</param>
 	void DisplayInventory(Window* _owner, const int& _width, const int& _height, const int& _gap);
+
+	/// <summary>
+	/// Display all spells in graphics
+	/// </summary>
+	/// <param name="_owner">Window*</param>
+	/// <param name="_width">int</param>
+	/// <param name="_heigth">int</param>
+	/// <param name="_gap">int</param>
+	void DisplaySpells(Window* _owner, const int& _width, const int& _heigth, const int& _gap);
 #pragma endregion methods
 };
 

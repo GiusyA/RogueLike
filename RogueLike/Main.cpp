@@ -13,11 +13,11 @@ int main()
 {
 	Player* player = new Player("Jean");
 	player->GetInventory()->AddItem(new HealPotion(20), 64);
-	player->GetInventory()->RemoveItem(new ManaPotion(20), 3);
-	player->GetInventory()->AddItem(new HealPotion(20));
+	player->GetInventory()->AddItem(new ManaPotion(20), 3);
+	player->GetInventory()->RemoveItem(new HealPotion(20));
 	player->GetInventory()->AddItem(new Fireball(10,10));
 
-	Test w = Test(500, 500, "test", player);
+	Test w = Test(600, 600, "test", player);
 	w.Open();
 	delete player;
 	return 0;

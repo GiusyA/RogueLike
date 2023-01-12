@@ -1,26 +1,4 @@
-﻿  Inventory.cpp
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(39,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(48,55): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(48,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(131,2): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(159,42): warning C4244: '+=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Item.cpp
-  Main.cpp
-  Player.cpp
-  Test.cpp
-D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(7,13): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(7,9): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-  Generating Code...
+﻿  Test.cpp
+D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(8,13): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(8,9): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
   RogueLike.vcxproj -> D:\Documents\GitHub\RogueLike\x64\Debug\RogueLike.exe

@@ -45,23 +45,38 @@ size_t Inventory::FindItem(Item* _item)
 
 void Inventory::DisplayItem(Window* _owner, Item* _item, const int& _width, const int& _height)
 {
+	int _spaceBetween = 50;
 	_item->GetSprite()->setPosition(sf::Vector2f(_width, _height));
 	_item->GetSprite()->setScale(sf::Vector2f(1.5f, 1.5f));
 
 	sf::Vector2f _position = _item->GetSprite()->getPosition();
 
 	UI_Label _text = UI_Label(_owner, _item->GetName().c_str());
-	_text.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + 100, 0));
+	_text.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + _spaceBetween, 0));
 	_text.SetScale(sf::Vector2f(.7f, .7f));
 
 	std::string _amountStr = "x" + std::to_string(_item->Stack());
 	UI_Label _amount = UI_Label(_owner, _amountStr.c_str());
 	_amount.SetScale(sf::Vector2f(.7f, .7f));
-	_amount.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + _text.GetGlobalBounds().width + 200, 0));
+	_amount.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + _text.GetGlobalBounds().width + _spaceBetween *2, 0));
 	
 	_owner->Draw(_item->GetSprite());
 	_text.Draw(_owner);
 	_amount.Draw(_owner);
+}
+
+void Inventory::DisplaySpell(Window* _owner, Spells* _spell, const int& _width, const int& _height)
+{
+	_spell->GetSprite()->setPosition(sf::Vector2f(_width, _height));
+
+	sf::Vector2f _position = _spell->GetSprite()->getPosition();
+
+	UI_Label _text = UI_Label(_owner, _spell->GetName().c_str());
+	_text.SetPosition(_position + sf::Vector2f(0, _spell->GetGlobalBounds().height + 30) - sf::Vector2f((_spell->GetGlobalBounds().width / 2) + 10, 0));
+	_text.SetScale(sf::Vector2f(.5f, .5f));
+	
+	_owner->Draw(_spell->GetSprite());
+	_text.Draw(_owner);
 }
 
 bool Inventory::HasSpells(Spells* _spells)
@@ -147,17 +162,39 @@ std::vector<Item*> Inventory::Items() const
 void Inventory::DisplayInventory(Window* _owner, const int& _width, const int& _height, const int& _gap)
 {
 	int y = _height;
+	int numberSpell = 1;
 	size_t _size = items.size();
 	for (size_t i = 0; i < _size; i++)
 	{
 		Item* _item = items[i];
-		//TODO check if item is spell or not		
+		//TODO check if item is spell or not
 		if (!dynamic_cast<Spells*>(items[i])) {
 			sf::Sprite sprite = *_item->GetSprite();
 			sf::Vector2f _position = sprite.getPosition();
-			if(i != 0)
+			if (i != 0)
 				y += sprite.getGlobalBounds().height + _gap;
 			DisplayItem(_owner, _item, _width, y);
+		}
+	}
+}
+void Inventory::DisplaySpells(Window* _owner, const int& _width, const int& _heigth, const int& _gap)
+{
+	int w = _width;
+	size_t _size = items.size();
+	int numberSpell = 0;
+	for (size_t i = 0; i < _size; i++)
+	{
+		Item* _item = items[i];
+		//TODO check if item is spell or not
+		if (dynamic_cast<Spells*>(items[i])) {
+			Spells* _spell = dynamic_cast<Spells*>(items[i]);
+			sf::Sprite sprite = *_item->GetSprite();
+			sf::Vector2f _position = sprite.getPosition();
+			_item->GetSprite()->setScale(sf::Vector2f(2.0f, 2.0f));
+			if (numberSpell != 0)
+				w += sprite.getGlobalBounds().width + _gap;
+			DisplaySpell(_owner, _spell, w, _heigth);
+			numberSpell++;
 		}
 	}
 }
