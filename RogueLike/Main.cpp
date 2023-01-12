@@ -6,6 +6,7 @@
 #include "Inventory/Item/Potion/Potion.h"
 #include "Inventory/Item/Potion/Heal/HealPotion.h"
 #include "Inventory/Item/Potion/Mana/ManaPotion.h"
+#include "Inventory/Item/Weapons/Sword/IronSword.h"
 #include "Inventory/Item/Spells/Fireball/Fireball.h"
 #include "Window/Test/Test.h"
 
@@ -16,6 +17,7 @@ int main()
 	player->GetInventory()->AddItem(new ManaPotion(20), 3);
 	player->GetInventory()->RemoveItem(new HealPotion(20));
 	player->GetInventory()->AddItem(new Fireball(10,10));
+	player->GetInventory()->AddItem(new IronSword(100,10));
 
 	Test w = Test(600, 600, "test", player);
 	w.Open();

@@ -149,6 +149,7 @@
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Inventory\Inventory.cpp" />
     <ClCompile Include="Inventory\Item\Item.cpp" />
+    <ClCompile Include="Inventory\Item\Weapons\Sword\IronSword.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Inventory\Item\Potion\Mana\ManaPotion.cpp" />
     <ClCompile Include="Object\GameObject\GameObject.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Entity\Player\Player.cpp" />
     <ClCompile Include="Inventory\Item\Potion\Potion.cpp" />
     <ClCompile Include="Inventory\Item\Spells\Spells.cpp" />
+    <ClCompile Include="Inventory\Item\Weapons\Weapons.cpp" />
     <ClCompile Include="Window\Test\Test.cpp" />
     <ClCompile Include="UI\Button\UI_Button.cpp" />
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp" />
@@ -176,6 +178,7 @@
     <ClInclude Include="Inventory\Inventory.h" />
     <ClInclude Include="Inventory\Item\Item.h" />
     <ClInclude Include="Inventory\Item\Potion\Mana\ManaPotion.h" />
+    <ClInclude Include="Inventory\Item\Weapons\Sword\IronSword.h" />
     <ClInclude Include="Object\GameObject\GameObject.h" />
     <ClInclude Include="Object\GameObject\Manager\GameObjectManager.h" />
     <ClInclude Include="Object\Object.h" />
@@ -183,6 +186,7 @@
     <ClInclude Include="Inventory\Item\Potion\Potion.h" />
     <ClInclude Include="Singleton\Singleton.h" />
     <ClInclude Include="Inventory\Item\Spells\Spells.h" />
+    <ClInclude Include="Inventory\Item\Weapons\Weapons.h" />
     <ClInclude Include="Window\Test\Test.h" />
     <ClInclude Include="Time\Time.h" />
     <ClInclude Include="UI\Button\UI_Button.h" />
