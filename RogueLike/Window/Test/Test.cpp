@@ -22,7 +22,7 @@ void Test::OnDraw()
 {
 	Draw(background->GetSprite());
 	player->GetInventory()->DisplayInventory(this, 320, 10, 15);
-	player->GetInventory()->DisplaySpells(this, 20, 550, 30);
+	player->GetInventory()->DisplaySpells(this, 20, 550, 80);
 }
 
 void Test::OnUpdate()

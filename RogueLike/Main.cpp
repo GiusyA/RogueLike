@@ -8,16 +8,18 @@
 #include "Inventory/Item/Potion/Mana/ManaPotion.h"
 #include "Inventory/Item/Weapons/Sword/IronSword.h"
 #include "Inventory/Item/Spells/Fireball/Fireball.h"
+#include "Inventory/Item/Spells/Shield/Shield.h"
 #include "Window/Test/Test.h"
 
 int main()
 {
 	Player* player = new Player("Jean");
-	player->GetInventory()->AddItem(new HealPotion(20), 64);
+	player->GetInventory()->AddItem(new HealPotion(20));
 	player->GetInventory()->AddItem(new ManaPotion(20), 3);
 	player->GetInventory()->RemoveItem(new HealPotion(20));
 	player->GetInventory()->AddItem(new Fireball(10,10));
-	player->GetInventory()->AddItem(new IronSword(100,10));
+	player->GetInventory()->AddItem(new IronSword(10,10));
+	player->GetInventory()->AddItem(new Shield(10,10));
 
 	Test w = Test(600, 600, "test", player);
 	w.Open();

@@ -58,8 +58,8 @@ void Inventory::DisplayItem(Window* _owner, Item* _item, const int& _width, cons
 	std::string _amountStr = "x" + std::to_string(_item->Stack());
 	UI_Label _amount = UI_Label(_owner, _amountStr.c_str());
 	_amount.SetScale(sf::Vector2f(.7f, .7f));
-	_amount.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + _text.GetGlobalBounds().width + _spaceBetween *2, 0));
-	
+	_amount.SetPosition(_position + sf::Vector2f(_item->GetGlobalBounds().width + _text.GetGlobalBounds().width + _spaceBetween * 2, 0));
+
 	_owner->Draw(_item->GetSprite());
 	_text.Draw(_owner);
 	_amount.Draw(_owner);
@@ -72,7 +72,7 @@ void Inventory::DisplaySpell(Window* _owner, Spells* _spell, const int& _width, 
 	sf::Vector2f _position = _spell->GetSprite()->getPosition();
 
 	UI_Label _text = UI_Label(_owner, _spell->GetName().c_str());
-	_text.SetPosition(_position + sf::Vector2f(0, _spell->GetGlobalBounds().height + 30) - sf::Vector2f((_spell->GetGlobalBounds().width / 2) + 10, 0));
+	_text.SetPosition(_position + sf::Vector2f(0, _spell->GetGlobalBounds().height + 30) - sf::Vector2f((_spell->GetGlobalBounds().width / 2) + 5, 0));
 	_text.SetScale(sf::Vector2f(.5f, .5f));
 	
 	_owner->Draw(_spell->GetSprite());
@@ -98,37 +98,33 @@ void Inventory::UseItem(Item* _item, Entity* _entity)
 		RemoveItem(_i);
 }
 
-bool Inventory::AddItem(Item* _item, const int& _amount)
+void Inventory::AddItem(Item* _item, const int& _amount)
 {
 	size_t slot = FindItem(_item);
 	if (slot == -1) {
 		items.push_back(_item);
 		if(_amount != 1)
 			AddItem(_item, _amount - 1);
-		return true;
 	}
 	else {
 		items[slot]->AddStack(_amount);
-		return true;
+		return;
 	}
-	return false;
 }
 
-bool Inventory::RemoveItem(Item* _item, const int& _amount)
+void Inventory::RemoveItem(Item* _item, const int& _amount)
 {
 	size_t slot = FindItem(_item);
-	if (slot == -1) 
+	if (slot == -1)
 	{
-		return false;
+		return;
 	}
-	else 
+	else
 	{
 		items[slot]->RemoveStack(_amount);
 		if (items[slot]->Stack() == 0)
-			RemoveItem(items[slot]);
-		return true;
+			items.erase(items.begin() + slot);
 	}
-	return false;
 }
 
 void Inventory::Clear()

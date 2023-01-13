@@ -76,14 +76,14 @@ public:
 	/// <param name="_item">Item*</param>
 	/// <param name="_amount">int</param>
 	/// <returns>Boolean</returns>
-	bool AddItem(Item* _item, const int& _amount = 1);
+	void AddItem(Item* _item, const int& _amount = 1);
 	/// <summary>
 	/// Remove an item from inventory and return true of false if can remove an item
 	/// </summary>
 	/// <param name="_item">Item*</param>
 	/// <param name="_amount">int</param>
 	/// <returns>Boolean</returns>
-	bool RemoveItem(Item* _item, const int& _amount = 1);
+	void RemoveItem(Item* _item, const int& _amount = 1);
 	/// <summary>
 	/// Clear totally of inventory
 	/// </summary>

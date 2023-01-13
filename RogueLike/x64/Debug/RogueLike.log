@@ -1,4 +1,34 @@
-﻿  Weapons.cpp
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Item\Weapons\Weapons.cpp(8,9): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Item\Weapons\Weapons.cpp(24,9): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+﻿  Inventory.cpp
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(39,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(49,55): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(49,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(70,56): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(70,48): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(142,2): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(171,42): warning C4244: '+=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documents\GitHub\RogueLike\RogueLike\Inventory\Inventory.cpp(191,41): warning C4244: '+=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
   RogueLike.vcxproj -> D:\Documents\GitHub\RogueLike\x64\Debug\RogueLike.exe
