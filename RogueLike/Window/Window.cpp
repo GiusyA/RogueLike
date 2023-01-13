@@ -12,7 +12,6 @@ Window::Window(const float _width, const float _height, const char* _title)
 	height = _height;
 	title = _title;
 }
-
 Window::~Window()
 {
 	for (std::pair<const char*, BaseMenu*> _pair : menus)
@@ -23,7 +22,6 @@ Window::~Window()
 	delete window;
 }
 #pragma endregion constructor/destructor
-
 #pragma region methods
 void Window::Update()
 {
@@ -51,7 +49,6 @@ void Window::Update()
 		window->display();
 	}
 }
-
 void Window::CloseAllMenus()
 {
 	for (std::pair<const char*, BaseMenu*> _pair : menus)
@@ -67,24 +64,18 @@ void Window::OpenMenu(const char* _name)
 
 	menus[_name]->Open();
 }
-
 void Window::RegisterMenu(const char* _name, BaseMenu* _menu)
 {
 	menus.insert(std::pair(_name, _menu));
 }
-
 void Window::InitMenus() {}
-
 void Window::OnDraw() {}
-
 void Window::OnReceiveEvent(const sf::Event& _event)
 {
 	if (_event.type == sf::Event::Closed)
 		Close();
 }
-
 void Window::OnUpdate() {}
-
 void Window::Close()
 {
 	if (!window->isOpen())
@@ -92,44 +83,36 @@ void Window::Close()
 
 	window->close();
 }
-
 void Window::Draw(sf::Drawable* _drawable)
 {
 	window->draw(*_drawable);
 }
-
 void Window::Open()
 {
 	InitMenus();
 	window = new sf::RenderWindow(sf::VideoMode(width, height), title);
 	Update();
 }
-
 void Window::SetFrameLimit(const int _frame)
 {
 	window->setFramerateLimit(_frame);
 }
-
 bool Window::HasFocus() const
 {
 	return window->hasFocus();
 }
-
 bool Window::IsOpen() const
 {
 	return window->isOpen();
 }
-
 float Window::Width() const
 {
 	return width;
 }
-
 float Window::Height() const
 {
 	return height;
 }
-
 sf::RenderWindow* Window::Renderer() const
 {
 	return window;
