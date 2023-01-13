@@ -9,6 +9,8 @@
 #include "Inventory/Item/Weapons/Sword/IronSword.h"
 #include "Inventory/Item/Spells/Fireball/Fireball.h"
 #include "Inventory/Item/Spells/Shield/Shield.h"
+#include "Inventory/Item/Spells/GodHeal/GodHeal.h"
+#include "Inventory/Item/Weapons/MagisStick/MagicStick.h"
 #include "Window/Test/Test.h"
 
 int main()
@@ -20,6 +22,8 @@ int main()
 	player->GetInventory()->AddItem(new Fireball(10,10));
 	player->GetInventory()->AddItem(new IronSword(10,10));
 	player->GetInventory()->AddItem(new Shield(10,10));
+	player->GetInventory()->AddItem(new MagicStick(10, 50));
+	player->GetInventory()->AddItem(new GodHeal(100, 200));
 	player->GetInventory()->AddMoney(500);
 
 	Test w = Test(600, 600, "test", player);

@@ -3,7 +3,7 @@
 #include "../../UI/Image/UI_Image.h"
 
 #pragma region constructor
-Item::Item(std::string _pathTexture, std::string _name, bool _stackable, int _stack, int _maxStack)
+Item::Item(const std::string&  _pathTexture, const std::string&  _name, const bool&  _stackable, int _stack, int _maxStack)
 {
 	name = _name;
 	stackable = _stackable;
@@ -19,11 +19,11 @@ Item::Item(std::string _pathTexture, std::string _name, bool _stackable, int _st
 	}
 }
 
-Item::Item(std::string _pathTexture, std::string _name, int _maxStack) :
-	Item(_pathTexture, _name, true, 1, _maxStack) { }
+Item::Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack) 
+	:Item(_pathTexture, _name, true, 1, _maxStack) { }
 
 
-Item::Item(std::string _pathTexture, std::string _name) : Item(_pathTexture, _name, false, 1, 1) { }
+Item::Item(const std::string&  _pathTexture, const std::string& _name) : Item(_pathTexture, _name, false, 1, 1) { }
 
 Item::Item(const Item& _copy)
 {
@@ -54,12 +54,12 @@ int Item::MaxStack() const
 	return maxStack;
 }
 
-void Item::SetIsStacklable(const bool _stackable)
+void Item::SetIsStacklable(const bool& _stackable)
 {
 	stackable = _stackable;
 }
 
-void Item::AddStack(const int _amount)
+void Item::AddStack(const int& _amount)
 {
 	int _newStack = stack + _amount;
 	if (_amount < 0) return;
@@ -68,12 +68,12 @@ void Item::AddStack(const int _amount)
 	else stack = _newStack;
 }
 
-void Item::SetStack(const int _amount)
+void Item::SetStack(const int& _amount)
 {
 	stack = _amount;
 }
 
-void Item::RemoveStack(const int _amount)
+void Item::RemoveStack(const int& _amount)
 {
 	int _newStack = stack - _amount;
 	if (_amount < 0) return;
@@ -82,7 +82,7 @@ void Item::RemoveStack(const int _amount)
 	else stack = _newStack;
 }
 
-void Item::SetMaxStack(const int _amount)
+void Item::SetMaxStack(const int& _amount)
 {
 	maxStack = _amount;
 }

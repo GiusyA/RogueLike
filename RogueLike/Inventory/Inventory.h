@@ -104,36 +104,30 @@ public:
 	/// </summary>
 	/// <returns>Vector<Item*></returns>
 	std::vector<Item*> Items() const;
-
 	/// <summary>
 	/// Get money of player
 	/// </summary>
 	/// <returns>int</returns>
 	int GetMoney() const;
-
 	/// <summary>
 	/// Add money to player inventory
 	/// </summary>
 	/// <param name="_money">int</param>
 	void AddMoney(const int& _money);
-
 	/// <summary>
 	/// Remove money from player inventory
 	/// </summary>
 	/// <param name="_money">int</param>
 	void RemoveMoney(const int& _money);
-
 	/// <summary>
 	/// Set money of player
 	/// </summary>
 	/// <param name="_money">int</param>
 	void SetMoney(const int& _money);
-
 	/// <summary>
 	/// Display money with graphics
 	/// </summary>
-	void DisplayMoney(Window* _owner, const int& _width, const int& _height);
-	
+	void DisplayMoney(Window* _owner, const int& _width, const int& _height);	
 	/// <summary>
 	/// Display all inventory with graphics
 	/// </summary>
@@ -142,7 +136,6 @@ public:
 	/// <param name="_height">int</param>
 	/// <param name="_gap">int</param>
 	void DisplayItems(Window* _owner, const int& _width, const int& _height, const int& _gap);
-
 	/// <summary>
 	/// Display all spells in graphics
 	/// </summary>
@@ -152,7 +145,13 @@ public:
 	/// <param name="_gap">int</param>
 	void DisplaySpells(Window* _owner, const int& _width, const int& _heigth, const int& _gap);
 
-	//TODO ajouter le display du sprite du joueur
+	/// <summary>
+	/// Display player sprite 
+	/// </summary>
+	/// <param name="_owner">Window*</param>
+	/// <param name="_width">int</param>
+	/// <param name="_heigth">int</param>
+	void DisplayPlayer(Window* _owner, const int& _width, const int& _heigth);
 #pragma endregion methods
 };
 

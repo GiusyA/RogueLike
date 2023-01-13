@@ -144,12 +144,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="Inventory\Item\Spells\GodHeal\GodHeal.cpp" />
     <ClCompile Include="Inventory\Item\Spells\Fireball\Fireball.cpp" />
     <ClCompile Include="Inventory\Item\Potion\Heal\HealPotion.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Inventory\Inventory.cpp" />
     <ClCompile Include="Inventory\Item\Item.cpp" />
     <ClCompile Include="Inventory\Item\Weapons\Sword\IronSword.cpp" />
+    <ClCompile Include="Inventory\Item\Weapons\MagisStick\MagicStick.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Inventory\Item\Potion\Mana\ManaPotion.cpp" />
     <ClCompile Include="Object\GameObject\GameObject.cpp" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Entity\Entity.h" />
     <ClInclude Include="Event\Delegate\Delegate.h" />
     <ClInclude Include="Event\Event.h" />
+    <ClInclude Include="Inventory\Item\Spells\GodHeal\GodHeal.h" />
     <ClInclude Include="Inventory\Item\Spells\Fireball\Fireball.h" />
     <ClInclude Include="Inventory\Item\Potion\Heal\HealPotion.h" />
     <ClInclude Include="Input\Input.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="Inventory\Item\Item.h" />
     <ClInclude Include="Inventory\Item\Potion\Mana\ManaPotion.h" />
     <ClInclude Include="Inventory\Item\Weapons\Sword\IronSword.h" />
+    <ClInclude Include="Inventory\Item\Weapons\MagisStick\MagicStick.h" />
     <ClInclude Include="Object\GameObject\GameObject.h" />
     <ClInclude Include="Object\GameObject\Manager\GameObjectManager.h" />
     <ClInclude Include="Object\Object.h" />

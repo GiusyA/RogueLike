@@ -3,7 +3,7 @@
 #include "../../../../Entity/Player/Player.h"
 
 Fireball::Fireball(const float _damage, const float _cost) : 
-	Spells("../assets/spells/fireball.png", "Fireball", _damage, _cost)
+	Spells("../assets/spells/fireball.png", "Fireball", true, _damage, _cost)
 {
 }
 

@@ -5,7 +5,7 @@ class Shield :
 {
 #pragma region f/p
 public:
-    Shield(const int& _protect, const int& _cost);
+    Shield(const int& _protect, const float& _cost);
 #pragma endregion f/p
 };
 

@@ -24,6 +24,7 @@ void Test::OnDraw()
 	player->GetInventory()->DisplayItems(this, 320, 10, 15);
 	player->GetInventory()->DisplayMoney(this, 320, 570);
 	player->GetInventory()->DisplaySpells(this, 20, 550, 80);
+	player->GetInventory()->DisplayPlayer(this, 50, 100);
 }
 
 void Test::OnUpdate()

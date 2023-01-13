@@ -28,18 +28,18 @@ public:
 	/// <param name="stackable">boolean</param>
 	/// <param name="_stack">int</param>
 	/// <param name="_maxStack">int</param>
-	Item(std::string _pathTexture, std::string _name, bool _stackable, int _stack = 1, int _maxStack = 64);
+	Item(const std::string& _pathTexture, const std::string& _name, const bool& _stackable, int _stack = 1, int _maxStack = 64);
 	/// <summary>
 	/// Constructor for create an item with name, stackable, and max stack (number of item is 1)
 	/// </summary>
 	/// <param name="_name">string</param>
 	/// <param name="_maxStack">int</param>
-	Item(std::string _pathTexture, std::string _name, int _maxStack);
+	Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack);
 	/// <summary>
 	/// Create item with just a name and can't be stackable
 	/// </summary>
 	/// <param name="_name">string</param>
-	Item(std::string _pathTexture, std::string _name);
+	Item(const std::string& _pathTexture, const std::string& _name);
 	/// <summary>
 	/// Constructor by copy
 	/// </summary>
@@ -73,27 +73,27 @@ public:
 	/// Set if item can be stackable
 	/// </summary>
 	/// <param name="_stackable">boolean</param>
-	void SetIsStacklable(const bool _stackable);
+	void SetIsStacklable(const bool& _stackable);
 	/// <summary>
 	/// Add an amount of item in stack
 	/// </summary>
 	/// <param name="_amount">int</param>
-	void AddStack(const int _amount);
+	void AddStack(const int& _amount);
 	/// <summary>
 	/// Set the stack of item
 	/// </summary>
 	/// <param name="_amount">int</param>
-	void SetStack(const int _amount);
+	void SetStack(const int& _amount);
 	/// <summary>
 	/// Remove a amount of item in stack
 	/// </summary>
 	/// <param name="_amount">int</param>
-	void RemoveStack(const int _amount);
+	void RemoveStack(const int& _amount);
 	/// <summary>
 	/// Set the max stack at amount
 	/// </summary>
 	/// <param name="_amount">int</param>
-	void SetMaxStack(const int _amount);
+	void SetMaxStack(const int& _amount);
 	/// <summary>
 	/// Return sprite of item for showing in screen
 	/// </summary>
