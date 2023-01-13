@@ -4,6 +4,7 @@
 #include "../../../UI/Image/UI_Image.h"
 #include "../../../UI/Label/UI_Label.h"
 #include "../../../Object/GameObject/GameObject.h"
+#include "../../../Object/GameObject/Manager/GameObjectManager.h"
 
 #pragma region constructor/destructor
 RL_MapMenu::RL_MapMenu(Window* _owner) : BaseMenu(_owner)

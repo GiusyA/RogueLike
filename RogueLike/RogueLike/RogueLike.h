@@ -20,6 +20,9 @@ private:
 	void EnterShop();
 	void EnterDungeon();
 	void LaunchNewGame();
+#pragma region Map
+	void DestroyMapDoor();
+#pragma endregion Map
 #pragma endregion methods
 #pragma region override
 public:

@@ -33,6 +33,8 @@ void RogueLike::EnterShop()
 
 void RogueLike::EnterDungeon()
 {
+	DestroyMapDoor();
+	CloseAllMenus();
 }
 
 void RogueLike::LaunchNewGame()
@@ -45,6 +47,12 @@ void RogueLike::LaunchNewGame()
 	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->ShopDoor()->SetCurrentPlayer(player);
 	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->DungeonDoor()->SetCurrentPlayer(player);
 	OpenMenu(MAP_MENU);
+}
+
+void RogueLike::DestroyMapDoor()
+{
+	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->ShopDoor()->Destroy();
+	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->DungeonDoor()->Destroy();
 }
 #pragma endregion methods
 

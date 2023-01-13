@@ -23,6 +23,8 @@ private:
 	void Close();
 	void Open();
 public:
+	void Register();
+	void Destroy();
 	void SetCurrentPlayer(Player* _player);
 	UI_Image* GetDoorImage();
 #pragma endregion methods

@@ -17,9 +17,6 @@ RL_Door::~RL_Door()
 {
     delete door;
     door = nullptr;
-
-    delete player;
-    player = nullptr;
 }
 #pragma endregion constructor/destructor
 
@@ -34,6 +31,16 @@ void RL_Door::Open()
 {
     sf::Texture* _texture = TextureManager::Instance()->Get("../Assets/doorOpened.png");
     door->GetSprite()->setTexture(*_texture);
+}
+
+void RL_Door::Register()
+{
+    GameObjectManager::Instance()->Register(this);
+}
+
+void RL_Door::Destroy()
+{
+    GameObjectManager::Instance()->Destroy(this);
 }
 
 void RL_Door::SetCurrentPlayer(Player* _player)
