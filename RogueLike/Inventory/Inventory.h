@@ -15,6 +15,7 @@ private:
 	std::string name = "Inventory of ...";
 	Player* owner = nullptr;
 	std::vector<Item*> items = std::vector<Item*>();
+	int money = 0;
 #pragma endregion f/p
 
 #pragma region constructor/destructor
@@ -103,6 +104,35 @@ public:
 	/// </summary>
 	/// <returns>Vector<Item*></returns>
 	std::vector<Item*> Items() const;
+
+	/// <summary>
+	/// Get money of player
+	/// </summary>
+	/// <returns>int</returns>
+	int GetMoney() const;
+
+	/// <summary>
+	/// Add money to player inventory
+	/// </summary>
+	/// <param name="_money">int</param>
+	void AddMoney(const int& _money);
+
+	/// <summary>
+	/// Remove money from player inventory
+	/// </summary>
+	/// <param name="_money">int</param>
+	void RemoveMoney(const int& _money);
+
+	/// <summary>
+	/// Set money of player
+	/// </summary>
+	/// <param name="_money">int</param>
+	void SetMoney(const int& _money);
+
+	/// <summary>
+	/// Display money with graphics
+	/// </summary>
+	void DisplayMoney(Window* _owner, const int& _width, const int& _height);
 	
 	/// <summary>
 	/// Display all inventory with graphics
@@ -111,7 +141,7 @@ public:
 	/// <param name="_width">int</param>
 	/// <param name="_height">int</param>
 	/// <param name="_gap">int</param>
-	void DisplayInventory(Window* _owner, const int& _width, const int& _height, const int& _gap);
+	void DisplayItems(Window* _owner, const int& _width, const int& _height, const int& _gap);
 
 	/// <summary>
 	/// Display all spells in graphics
@@ -121,6 +151,8 @@ public:
 	/// <param name="_heigth">int</param>
 	/// <param name="_gap">int</param>
 	void DisplaySpells(Window* _owner, const int& _width, const int& _heigth, const int& _gap);
+
+	//TODO ajouter le display du sprite du joueur
 #pragma endregion methods
 };
 

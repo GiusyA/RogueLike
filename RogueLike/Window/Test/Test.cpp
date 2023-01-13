@@ -21,7 +21,8 @@ Test::~Test()
 void Test::OnDraw()
 {
 	Draw(background->GetSprite());
-	player->GetInventory()->DisplayInventory(this, 320, 10, 15);
+	player->GetInventory()->DisplayItems(this, 320, 10, 15);
+	player->GetInventory()->DisplayMoney(this, 320, 570);
 	player->GetInventory()->DisplaySpells(this, 20, 550, 80);
 }
 

@@ -4,12 +4,14 @@
 #include "Item/Item.h"
 #include "Item/Spells/Spells.h"
 #include "../UI/Label/UI_Label.h"
+#include "../UI/Image/UI_Image.h"
 #include "../Window/Window.h"
 #pragma region constructor/destructor
 Inventory::Inventory(Player* _player)
 {
 	owner = _player;
 	name = "Inventory of " + owner->GetName();
+	money = 0;
 }
 
 Inventory::Inventory(const Inventory& _copy)
@@ -155,7 +157,39 @@ std::vector<Item*> Inventory::Items() const
 {
 	return items;
 }
-void Inventory::DisplayInventory(Window* _owner, const int& _width, const int& _height, const int& _gap)
+int Inventory::GetMoney() const
+{
+	return 0;
+}
+void Inventory::AddMoney(const int& _money)
+{
+	money += _money;
+}
+void Inventory::RemoveMoney(const int& _money)
+{
+	int _newMoney = money - _money;
+	if (_newMoney > 0)
+		money = _newMoney;
+	else
+		money = 0;
+}
+void Inventory::SetMoney(const int& _money)
+{
+	money = _money;
+}
+void Inventory::DisplayMoney(Window* _owner, const int& _width, const int& _height)
+{
+	UI_Image logo = UI_Image(_owner, "../assets/money.png");
+	logo.SetPosition(sf::Vector2f(_width, _height));
+	logo.SetScale(sf::Vector2f(1.5f, 1.5f));
+	UI_Label text = UI_Label(_owner, std::to_string(money).c_str());
+	text.SetScale(sf::Vector2f(0.6f, 0.6f));
+	text.SetPosition(sf::Vector2f(logo.GetSprite()->getPosition().x + logo.GetGlobalBounds().width + 10, _height));
+	logo.Draw(_owner);
+	text.Draw(_owner);
+}
+
+void Inventory::DisplayItems(Window* _owner, const int& _width, const int& _height, const int& _gap)
 {
 	int y = _height;
 	int numberSpell = 1;
