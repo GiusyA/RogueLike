@@ -12,6 +12,8 @@ private:
 public:
 	UI_Label() = default;
 	UI_Label(Window* _owner, const char* _text);
+	//To initialize the label with a different font.
+	UI_Label(Window* _owner, const char* _text, const char* _path);
 	UI_Label(const UI_Label& _copy);
 	virtual ~UI_Label() override;
 #pragma endregion constructor/destructor

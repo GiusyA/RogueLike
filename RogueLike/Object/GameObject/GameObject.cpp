@@ -1,10 +1,11 @@
 #include "GameObject.h"
 #include "../../Window/Window.h"
+#include "../GameObject/Manager/GameObjectManager.h"
 
 #pragma region constructor/destructor
 GameObject::GameObject()
 {
-	//TODO GameObjectManager
+	GameObjectManager::Instance()->Register(this);
 }
 
 GameObject::GameObject(const GameObject& _copy)

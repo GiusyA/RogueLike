@@ -7,7 +7,6 @@ UI_Button::UI_Button(Window* _owner, const char* _path) : UI_Element(_owner)
 {
 	image = new UI_Image(_owner, _path);
 }
-
 UI_Button::UI_Button(const UI_Button& _copy)
 {
 	image = _copy.image;
@@ -39,9 +38,7 @@ void UI_Button::OnUpdate()
 	const sf::Vector2i _mousePosition = sf::Mouse::getPosition(*owner->Renderer());
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && image->GetGlobalBounds().contains(sf::Vector2f(_mousePosition.x, _mousePosition.y)))
-	{
 		OnClick.Invoke();
-	}
 }
 
 void UI_Button::SetOrigin(const sf::Vector2f& _origin)

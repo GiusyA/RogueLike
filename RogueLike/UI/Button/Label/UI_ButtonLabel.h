@@ -1,22 +1,29 @@
 #pragma once
-#include "../UI_Element.h"
-#include "../../Event/Delegate/Delegate.h"
+#include "../../UI_Element.h"
+#include "../../../Event/Delegate/Delegate.h"
 
-class UI_Button : public UI_Element
+class UI_ButtonLabel : public UI_Element
 {
 #pragma region f/p
 private:
-	class UI_Image* image = nullptr;
+	class UI_Label* label = nullptr;
 public:
 	Delegate<void> OnClick = nullptr;
 #pragma endregion f/p
 #pragma region constructor/destructor
 public:
-	UI_Button() = default;
-	UI_Button(Window* _owner, const char* _path);
-	UI_Button(const UI_Button& _copy);
-	virtual ~UI_Button() override;
+	UI_ButtonLabel() = default;
+	UI_ButtonLabel(Window* _owner, const char* _text);
+	UI_ButtonLabel(Window* _owner, const char* _text, const char* _path);
+	UI_ButtonLabel(const UI_ButtonLabel& _copy);
+	virtual ~UI_ButtonLabel() override;
 #pragma endregion constructor/destructor
+#pragma region methods
+public:
+	void SetCharacterSize(const int _size);
+	void SetColor(const sf::Color& _color);
+	void SetText(const char* _text);
+#pragma endregion methods
 #pragma region override
 public:
 	virtual void Draw(Window* _window) override;

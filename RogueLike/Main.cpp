@@ -1,5 +1,8 @@
+#include "RogueLike/RogueLike.h"
+
 int main()
 {
-	//test
+	RogueLike _newGame = RogueLike();
+	_newGame.Open();
 	return 0;
 }

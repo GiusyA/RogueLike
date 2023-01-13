@@ -38,9 +38,23 @@ void UI_Image::Free()
 	texture = nullptr;
 }
 
-sf::FloatRect UI_Image::GetGlobalBounds() const
+void UI_Image::SetTexture(const char* _path)
 {
-	return sprite->getGlobalBounds();
+	delete texture;
+	texture = new sf::Texture();
+
+	if (!texture->loadFromFile(_path))
+	{
+		Free();
+		return;
+	}
+
+	sprite->setTexture(*texture);
+}
+
+sf::Sprite* UI_Image::GetSprite()
+{
+	return sprite;
 }
 #pragma endregion methods
 

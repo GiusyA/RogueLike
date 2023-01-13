@@ -51,6 +51,18 @@
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="RogueLike\RogueLike.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\Door\RL_Door.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\Menu\MapMenu\RL_MapMenu.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\Menu\MainMenu\RL_MainMenu.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Object.h">
@@ -101,5 +113,38 @@
     <ClInclude Include="UI\Image\TextureManager\TextureManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="RogueLike\RogueLike.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\Door\RL_Door.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\Menu\MapMenu\RL_MapMenu.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\Menu\MainMenu\RL_MainMenu.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\BaseMenu.obj" />
+    <Object Include="x64\Debug\Entity.obj" />
+    <Object Include="x64\Debug\GameObject.obj" />
+    <Object Include="x64\Debug\GameObjectManager.obj" />
+    <Object Include="x64\Debug\Input.obj" />
+    <Object Include="x64\Debug\Main.obj" />
+    <Object Include="x64\Debug\Player.obj" />
+    <Object Include="x64\Debug\RL_Door.obj" />
+    <Object Include="x64\Debug\RL_MainMenu.obj" />
+    <Object Include="x64\Debug\RL_MapMenu.obj" />
+    <Object Include="x64\Debug\RogueLike.obj" />
+    <Object Include="x64\Debug\TextureManager.obj" />
+    <Object Include="x64\Debug\UI_Button.obj" />
+    <Object Include="x64\Debug\UI_ButtonLabel.obj" />
+    <Object Include="x64\Debug\UI_Element.obj" />
+    <Object Include="x64\Debug\UI_ElementManager.obj" />
+    <Object Include="x64\Debug\UI_Image.obj" />
+    <Object Include="x64\Debug\UI_Label.obj" />
+    <Object Include="x64\Debug\Window.obj" />
   </ItemGroup>
 </Project>

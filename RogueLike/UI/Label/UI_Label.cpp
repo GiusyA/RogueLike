@@ -8,7 +8,22 @@ UI_Label::UI_Label(Window* _owner, const char* _text) : UI_Element(_owner)
 	text->setString(_text);
 
 	font = new sf::Font();
-	if (!font->loadFromFile("../Fonts/Roboto-Regular.ttf"))
+	if (!font->loadFromFile("../Fonts/Roboto.ttf"))
+	{
+		Free();
+		return;
+	}
+
+	text->setFont(*font);
+}
+
+UI_Label::UI_Label(Window* _owner, const char* _text, const char* _path)
+{
+	text = new sf::Text();
+	text->setString(_text);
+
+	font = new sf::Font();
+	if (!font->loadFromFile(_path))
 	{
 		Free();
 		return;

@@ -11,6 +11,8 @@ class Window : public Object
 private:
 	const char* title = "Default window";
 	sf::RenderWindow* window = nullptr;
+	//Basic style for a window.
+	int style = 7U;
 protected:
 	float width = 900;
 	float height = 800;
@@ -22,6 +24,11 @@ protected:
 public:
 	Window() = default;
 	Window(const float _width, const float _height, const char* _title);
+	/// <summary>
+	/// Constructor with a personnalized style.
+	/// </summary>
+	/// <param name="_style">sf::Style</param>
+	Window(const float _width, const float _height, const char* _title, const int _style);
 	Window(const Window& _copy) = delete;
 	virtual ~Window();
 #pragma endregion constructor/destructor

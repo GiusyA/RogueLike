@@ -19,7 +19,11 @@ public:
 private:
 	void Free();
 public:
-	sf::FloatRect GetGlobalBounds() const;
+	void SetTexture(const char* _path);
+	/// <summary>
+	/// Return the sprite.
+	/// </summary>
+	sf::Sprite* GetSprite();
 #pragma endregion methods
 #pragma region override
 public:

@@ -137,6 +137,10 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Object\GameObject\GameObject.cpp" />
     <ClCompile Include="Object\GameObject\Manager\GameObjectManager.cpp" />
+    <ClCompile Include="RogueLike\Door\RL_Door.cpp" />
+    <ClCompile Include="RogueLike\Menu\MainMenu\RL_MainMenu.cpp" />
+    <ClCompile Include="RogueLike\Menu\MapMenu\RL_MapMenu.cpp" />
+    <ClCompile Include="RogueLike\RogueLike.cpp" />
     <ClCompile Include="UI\Button\UI_Button.cpp" />
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp" />
     <ClCompile Include="UI\Image\UI_Image.cpp" />
@@ -153,6 +157,10 @@
     <ClInclude Include="Object\GameObject\GameObject.h" />
     <ClInclude Include="Object\GameObject\Manager\GameObjectManager.h" />
     <ClInclude Include="Object\Object.h" />
+    <ClInclude Include="RogueLike\Door\RL_Door.h" />
+    <ClInclude Include="RogueLike\Menu\MainMenu\RL_MainMenu.h" />
+    <ClInclude Include="RogueLike\Menu\MapMenu\RL_MapMenu.h" />
+    <ClInclude Include="RogueLike\RogueLike.h" />
     <ClInclude Include="Singleton\Singleton.h" />
     <ClInclude Include="Time\Time.h" />
     <ClInclude Include="UI\Button\UI_Button.h" />
@@ -163,6 +171,27 @@
     <ClInclude Include="UI\UI_Element.h" />
     <ClInclude Include="Window\Menu\BaseMenu.h" />
     <ClInclude Include="Window\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\BaseMenu.obj" />
+    <Object Include="x64\Debug\Entity.obj" />
+    <Object Include="x64\Debug\GameObject.obj" />
+    <Object Include="x64\Debug\GameObjectManager.obj" />
+    <Object Include="x64\Debug\Input.obj" />
+    <Object Include="x64\Debug\Main.obj" />
+    <Object Include="x64\Debug\Player.obj" />
+    <Object Include="x64\Debug\RL_Door.obj" />
+    <Object Include="x64\Debug\RL_MainMenu.obj" />
+    <Object Include="x64\Debug\RL_MapMenu.obj" />
+    <Object Include="x64\Debug\RogueLike.obj" />
+    <Object Include="x64\Debug\TextureManager.obj" />
+    <Object Include="x64\Debug\UI_Button.obj" />
+    <Object Include="x64\Debug\UI_ButtonLabel.obj" />
+    <Object Include="x64\Debug\UI_Element.obj" />
+    <Object Include="x64\Debug\UI_ElementManager.obj" />
+    <Object Include="x64\Debug\UI_Image.obj" />
+    <Object Include="x64\Debug\UI_Label.obj" />
+    <Object Include="x64\Debug\Window.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

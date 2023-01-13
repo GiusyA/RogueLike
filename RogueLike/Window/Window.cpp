@@ -13,6 +13,14 @@ Window::Window(const float _width, const float _height, const char* _title)
 	title = _title;
 }
 
+Window::Window(const float _width, const float _height, const char* _title, const int _style)
+{
+	width = _width;
+	height = _height;
+	title = _title;
+	style = _style;
+}
+
 Window::~Window()
 {
 	for (std::pair<const char*, BaseMenu*> _pair : menus)
@@ -101,7 +109,8 @@ void Window::Draw(sf::Drawable* _drawable)
 void Window::Open()
 {
 	InitMenus();
-	window = new sf::RenderWindow(sf::VideoMode(width, height), title);
+	//Add of style.
+	window = new sf::RenderWindow(sf::VideoMode(width, height), title, style);
 	Update();
 }
 
