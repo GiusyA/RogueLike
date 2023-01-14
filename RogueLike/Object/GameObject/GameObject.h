@@ -2,6 +2,7 @@
 #include "../Object.h"
 #include <SFML/Graphics.hpp>
 
+//Dessiner les object du jeu
 class GameObject : public Object
 {
 #pragma region f/p

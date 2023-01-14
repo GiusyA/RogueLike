@@ -2,6 +2,7 @@
 #include "../../Object/Object.h"
 #include <cstddef>
 
+//Pointer de fonction d'une autre class d'object
 template<typename Res, typename... Params>
 class Delegate : public Object
 {
@@ -18,20 +19,20 @@ public:
 		function = nullptr;
 		instance = nullptr;
 	}
-
 	Delegate(const Delegate& _copy)
 	{
 		function = _copy.function;
 		instance = _copy.instance;
 	}
-
 	template<typename Class>
 	Delegate(Class* _instance, Res(Class::* _ptr)(Params...))
 	{
+		//Si object
 		if constexpr (!std::is_base_of_v<Object, Class>)
 			throw std::exception("[Delegate] => Class must be inherited of Object.");
 
 		instance = _instance;
+		//pointer de fonction est convertit en <Function> et pointe sur _*ptr
 		function = reinterpret_cast<Function>(_ptr);
 	}
 #pragma endregion constructor/destructor
@@ -41,18 +42,17 @@ public:
 	{
 		*this = Delegate(nullptr_t);
 	}
-
+	//Delegate prend la class et le pointer
 	template<typename Class>
 	void SetDynamic(Class* _instance, Res(Class::* _ptr)(Params...))
 	{
 		*this = Delegate(_instance, _ptr);
 	}
-
 	bool IsValid() const
 	{
 		return instance != nullptr && function != nullptr;
 	}
-
+	//Retourne la fonction de la classe pointer
 	Res Invoke(Params... _params)
 	{
 		if (instance == nullptr)
@@ -71,7 +71,6 @@ public:
 		instance = nullptr;
 		function = nullptr;
 	}
-
 	void operator=(const Delegate& _other)
 	{
 		instance = _other.instance;

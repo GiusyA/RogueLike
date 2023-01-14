@@ -4,7 +4,7 @@
 #include <map>
 
 class BaseMenu;
-
+//Affiche les menus et gère les events & updates
 class Window : public Object
 {
 #pragma region f/p

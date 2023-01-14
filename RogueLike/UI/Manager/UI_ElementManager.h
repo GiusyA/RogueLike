@@ -2,6 +2,7 @@
 #include "../../Singleton/Singleton.h"
 #include <vector>
 
+//Gère tous les éléments déjà créer
 class UI_ElementManager : public Singleton<UI_ElementManager>
 {
 #pragma region f/p

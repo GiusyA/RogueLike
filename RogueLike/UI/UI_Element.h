@@ -2,6 +2,7 @@
 #include "../Object/Object.h"
 #include <SFML/Graphics.hpp>
 
+//Créer et dessine les éléments
 class UI_Element : public Object
 {
 #pragma region f/p

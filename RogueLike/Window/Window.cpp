@@ -54,7 +54,6 @@ void Window::CloseAllMenus()
 	for (std::pair<const char*, BaseMenu*> _pair : menus)
 		_pair.second->Close();
 }
-
 void Window::OpenMenu(const char* _name)
 {
 	CloseAllMenus();

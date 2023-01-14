@@ -2,8 +2,8 @@
 
 int main()
 {
-	TestEntity _test;
-	_test.Play();
-
+	TestEntity _test =TestEntity();
+	
+	_test.Open();
 	return 0;
 }

@@ -1,40 +1,27 @@
 #include "TestEntity.h"
-#include "SFML/Graphics.hpp"
-#include <iostream>
-#include "../Entity/Player/Player.h"
-#include "../Entity/Monster/Monster.h"
+#include "../Time/Time.h"
+#include "../Input/Input.h"
 
-void TestEntity::Play()
+TestEntity::TestEntity()
 {
-	Player _player;
-	Monster _monster;
 	
-	sf::RenderWindow _window(sf::VideoMode(900, 900), "BIRD!");
-
-	sf::Texture _texture;
-	if (!_texture.loadFromFile("assets/Sprites/Heros/mage.png"))
-	{
-		std::cout << "Impossible to load!" << std::endl;
-		return;
-	}
-
-
-
-	sf::Sprite _heros;
-	_heros.setTexture(_texture);
-	_heros.setPosition(sf::Vector2f(100, 100));
-
-	while (_window.isOpen())
-	{
-		sf::Event _event;
-		while (_window.pollEvent(_event))
-		{
-			if (_event.type == sf::Event::Closed)
-				_window.close();
-		}
-		_window.clear();
-		_window.draw(_heros);
-		_window.display();
-
-	}
 }
+TestEntity::~TestEntity(){}
+void TestEntity::OnDraw()
+{
+	Draw(player.GetDrawable());
+	Draw(monster.GetDrawable());
+}
+void TestEntity::OnUpdate()
+{
+	if (Input::IsKeyDown(sf::Keyboard::Z))
+		player.SetPosition(player.Position() + sf::Vector2f(0, -10));
+	if (Input::IsKeyDown(sf::Keyboard::Q))
+		player.SetPosition(player.Position() + sf::Vector2f(-10, 0));
+	if (Input::IsKeyDown(sf::Keyboard::S))
+		player.SetPosition(player.Position() + sf::Vector2f(0, 10));
+	if (Input::IsKeyDown(sf::Keyboard::D))
+		player.SetPosition(player.Position() + sf::Vector2f(10, 0));
+
+}
+

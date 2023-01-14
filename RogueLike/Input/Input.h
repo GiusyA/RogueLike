@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+//Gère les entrer clavier
 class Input
 {
 #pragma region methods

@@ -15,12 +15,10 @@ void GameObjectManager::CheckCollision()
 		}
 	}
 }
-
 void GameObjectManager::Destroy(GameObject* _gameObject)
 {
 	objectsToDestroy.push_back(_gameObject);
 }
-
 void GameObjectManager::DestroyAllObjects()
 {
 	for (GameObject* _object : gameObjects)
@@ -32,7 +30,6 @@ void GameObjectManager::DestroyAllObjects()
 	objectsToDestroy.clear();
 	gameObjects.clear();
 }
-
 void GameObjectManager::DestroyAllRequests()
 {
 	for (GameObject* _object : objectsToDestroy)
@@ -40,7 +37,6 @@ void GameObjectManager::DestroyAllRequests()
 
 	objectsToDestroy.clear();
 }
-
 void GameObjectManager::Draw(Window* _window)
 {
 	const size_t _size = gameObjects.size();
@@ -48,12 +44,10 @@ void GameObjectManager::Draw(Window* _window)
 	for (size_t i = 0; i < _size; i++)
 		gameObjects[i]->OnDraw(_window);
 }
-
 void GameObjectManager::Register(GameObject* _gameObject)
 {
 	gameObjects.push_back(_gameObject);
 }
-
 void GameObjectManager::Update()
 {
 	const size_t _size = gameObjects.size();
@@ -61,7 +55,6 @@ void GameObjectManager::Update()
 	for (size_t i = 0; i < _size; i++)
 		gameObjects[i]->OnUpdate();
 }
-
 void GameObjectManager::UnRegister(GameObject* _gameObject)
 {
 	const size_t _size = gameObjects.size();
@@ -77,7 +70,6 @@ void GameObjectManager::UnRegister(GameObject* _gameObject)
 	}
 }
 #pragma endregion methods
-
 #pragma region override
 void GameObjectManager::OnDestroy()
 {

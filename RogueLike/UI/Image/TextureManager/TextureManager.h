@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 
+//Gère les textures 
+
 class TextureManager : public Singleton<TextureManager>
 {
 #pragma region f/p

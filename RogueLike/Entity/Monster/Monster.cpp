@@ -1,26 +1,56 @@
 #include "Monster.h"
+#include <iostream>
 
 #pragma region constructor/destructor
-Monster::Monster(const std::string _name, const float _life, UI_Image* _image, const float _attack, const int _level) : Entity( _name,  _life, _image,  _attack,  _level)
-{
+Monster::Monster()
+{	
+	Init();
 }
 Monster::~Monster()
 {
-	OnDestroy(isDead);
-}
-void Monster::Init()
-{
+	Restart();
 }
 #pragma endregion constructor/destructor
 #pragma region methods
-
 #pragma endregion methods
 #pragma region override
-void Monster::OnDestroy(const bool _isdead)
+sf::Drawable* Monster::GetDrawable()
 {
-	if (_isdead)
+	sf::Drawable* _sprite = sprite;
+	return _sprite;
+}
+void Monster::Die()
+{
+	if (!isDead) return;
+	isDead = false;
+	OnDie.Invoke();
+}
+void Monster::Restart(){}
+void Monster::OnUpdate()
+{
+}
+void Monster::Init()
+{
+	sprite = new sf::Sprite();
+	texture = new sf::Texture();
+	if (texture->loadFromFile("assets/Sprites/Monster/ghost.png"))
+		sprite->setTexture(*texture);
+	else
 	{
-
+		std::cout << "Impossible to load!" << std::endl;
+		return;
 	}
+
+	sprite->setOrigin(sf::Vector2f(0, 0));
+	sprite->setPosition(sf::Vector2f(0, 0));
+	sprite->setScale(sf::Vector2f(5.355, 5.355));
+}
+sf::FloatRect Monster::GetGlobalBounds() const
+{
+	return sprite->getGlobalBounds();
+}
+sf::Vector2f Monster::Position() const
+{
+	return sprite->getPosition();
 }
 #pragma endregion override

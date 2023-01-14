@@ -1,28 +1,17 @@
 #include "Player.h"
 #include "../../Inventory/Inventory.h"
-#include "../../UI/Image/UI_Image.h"
 #include "../../Window/Window.h"
-#include "SFML/Graphics.hpp"
+#include "../../Time/Time.h"
+#include <iostream>
 
 #pragma region constructor/destructor
-Player::Player(const std::string _name, const float _life, UI_Image* _image, const float _attack, const int _level, const float _mana, const Inventory* _inventory) : Entity(_name, _life, _image,  _attack, _level)
+Player::Player()
 {
-	
-	sf::Texture _texture;
-	inventory = new Inventory(); //TODO
-	mana = mana;
-	name = _name;
-	image = new UI_Image();
-
-}
-Player::Player(const Player& _copy) : Entity( _copy)
-{
-	inventory = _copy.inventory;
-	mana = _copy.mana;
+	Init();
 }
 Player::~Player()
 {
-	OnDestroy(isDead);
+	Restart();
 }
 #pragma endregion constructor/destructor
 #pragma region setter/getter
@@ -30,7 +19,6 @@ Player::~Player()
 	{
 		return mana;
 	}
-
 	float Player::SetMana(const float _mana)
 	{
 		return mana = _mana;
@@ -45,18 +33,45 @@ Player::~Player()
 	}
 #pragma endregion setter/getter
 #pragma region methods
-	void Player::Init()
-	{
-		//TODO Image
-	}
 #pragma endregion methods
 #pragma region override
-	void Player::OnDestroy(const bool _isdead)
+	sf::Drawable* Player::GetDrawable()
 	{
-		if (_isdead)
+		 sf::Drawable* _sprite = sprite;
+		return _sprite;
+	}
+
+	void Player::Die() {} //Pas touche die
+	void Player::Restart()
+	{
+		if (!isDead) return;
+		isDead = false;
+		OnDie.Invoke();
+		Init();
+	}
+	void Player::OnUpdate(){}
+	void Player::Init()
+	{
+		sprite = new sf::Sprite();
+		texture = new sf::Texture();
+		if (texture->loadFromFile("assets/Sprites/Heros/mage.png"))
+			sprite->setTexture(*texture);
+		else
 		{
-			delete inventory;
-			inventory = nullptr;
+			std::cout << "Impossible to load!" << std::endl;
+			return;
 		}
+		sprite->setOrigin(sf::Vector2f(0, 0));
+		sprite->setPosition(sf::Vector2f(500.0f, 500.0f));
+		sprite->setScale(sf::Vector2f(5.355, 5.355));
+		
+	}
+	sf::FloatRect Player::GetGlobalBounds() const
+	{
+		return sprite->getGlobalBounds();
+	}
+	sf::Vector2f Player::Position() const
+	{
+		return sprite->getPosition();
 	}
 #pragma endregion override

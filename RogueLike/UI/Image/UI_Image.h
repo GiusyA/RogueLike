@@ -1,6 +1,7 @@
 #pragma once
 #include "../UI_Element.h"
 
+//Déssine les images
 class UI_Image : public UI_Element
 {
 #pragma region f/p

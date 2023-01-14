@@ -1,5 +1,6 @@
 #pragma once
 #include "../Entity.h"
+#include "../../Event/Delegate/Delegate.h"
 
 class Inventory;
 
@@ -9,12 +10,12 @@ class Player :public Entity
 private:
 	Inventory* inventory = nullptr;
 	float mana = 100.0f;
+public:
+	Delegate<void> OnDie = nullptr;
 #pragma endregion f/p
 #pragma region constructor/destructor
 public:
-	Player() = default;
-	Player(const std::string name, const float _life, UI_Image* _image, const float _attack, const int _level, const float _mana, const Inventory* _inventory);
-	Player(const Player& _copy);
+	Player();
 	virtual ~Player() override;
 #pragma endregion constructor/destructor
 #pragma region setter/getter
@@ -26,11 +27,16 @@ public:
 #pragma endregion setter/getter
 #pragma region methods
 public:
-	void Init();
 #pragma endregion methods
 #pragma region override
 public:
-	virtual void OnDestroy(const bool _isdead) override;
+	virtual sf::Drawable* GetDrawable() override;
+	virtual void Die() override;
+	virtual void Restart() override;
+	void OnUpdate() override;
+	virtual void Init() override;
+	virtual sf::FloatRect GetGlobalBounds()const override;
+	virtual sf::Vector2f Position()const override;
 #pragma endregion override
 
 };

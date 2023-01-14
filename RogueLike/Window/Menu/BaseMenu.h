@@ -3,7 +3,7 @@
 #include <vector>
 
 class UI_Element;
-
+//Crée les menus
 class BaseMenu : public Object
 {
 #pragma region f/p

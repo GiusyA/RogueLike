@@ -2,6 +2,7 @@
 #include "../../../Singleton/Singleton.h"
 #include <vector>
 
+//Gère tous les object dessiner
 class GameObject;
 
 class GameObjectManager : public Singleton<GameObjectManager>

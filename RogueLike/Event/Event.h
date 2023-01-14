@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+//Event actuelle
 class Event
 {
 #pragma region f/p
