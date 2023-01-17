@@ -178,8 +178,8 @@ void RogueLike::OnUpdate()
 		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->Life()->SetText(_life);
 		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->Mana()->SetText(_mana);
 
-		UpdatePotions();
-		UpdateSpells();
+		/*UpdatePotions();
+		UpdateSpells();*/
 	}
 	else
 		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->LaunchFight()->SetText("Press ENTER to fight");
