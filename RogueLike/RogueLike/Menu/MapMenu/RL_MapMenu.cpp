@@ -18,8 +18,6 @@ RL_MapMenu::RL_MapMenu(Window* _owner) : BaseMenu(_owner)
     InitShopDoor();
     InitShopLabel();
 }
-
-RL_MapMenu::~RL_MapMenu() {}
 #pragma endregion constructor/destructor
 
 #pragma region methods

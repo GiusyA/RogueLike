@@ -133,14 +133,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="Entity\Monster\Monster.cpp" />
+    <ClCompile Include="Entity\Player\Player.cpp" />
     <ClCompile Include="Input\Input.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Item\Item.cpp" />
+    <ClCompile Include="Inventory\Item\Potion\Heal\HealPotion.cpp" />
+    <ClCompile Include="Inventory\Item\Potion\Mana\ManaPotion.cpp" />
+    <ClCompile Include="Inventory\Item\Potion\Potion.cpp" />
+    <ClCompile Include="Inventory\Item\Spells\Fireball\Fireball.cpp" />
+    <ClCompile Include="Inventory\Item\Spells\GodHeal\GodHeal.cpp" />
+    <ClCompile Include="Inventory\Item\Spells\Shield\Shield.cpp" />
+    <ClCompile Include="Inventory\Item\Spells\Spells.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Object\GameObject\GameObject.cpp" />
     <ClCompile Include="Object\GameObject\Manager\GameObjectManager.cpp" />
     <ClCompile Include="RogueLike\Door\RL_Door.cpp" />
+    <ClCompile Include="RogueLike\Menu\DungeonMenu\RL_DungeonMenu.cpp" />
     <ClCompile Include="RogueLike\Menu\MainMenu\RL_MainMenu.cpp" />
     <ClCompile Include="RogueLike\Menu\MapMenu\RL_MapMenu.cpp" />
     <ClCompile Include="RogueLike\RogueLike.cpp" />
+    <ClCompile Include="UI\Button\Label\UI_ButtonLabel.cpp" />
     <ClCompile Include="UI\Button\UI_Button.cpp" />
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp" />
     <ClCompile Include="UI\Image\UI_Image.cpp" />
@@ -151,18 +165,34 @@
     <ClCompile Include="Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Entity.h" />
+    <ClInclude Include="Entity\Monster\Monster.h" />
+    <ClInclude Include="Entity\Player\Player.h" />
     <ClInclude Include="Event\Delegate\Delegate.h" />
     <ClInclude Include="Event\Event.h" />
     <ClInclude Include="Input\Input.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Item\Database\ItemDatabase.h" />
+    <ClInclude Include="Inventory\Item\Item.h" />
+    <ClInclude Include="Inventory\Item\Potion\Heal\HealPotion.h" />
+    <ClInclude Include="Inventory\Item\Potion\Mana\ManaPotion.h" />
+    <ClInclude Include="Inventory\Item\Potion\Potion.h" />
+    <ClInclude Include="Inventory\Item\Spells\Fireball\Fireball.h" />
+    <ClInclude Include="Inventory\Item\Spells\GodHeal\GodHeal.h" />
+    <ClInclude Include="Inventory\Item\Spells\Shield\Shield.h" />
+    <ClInclude Include="Inventory\Item\Spells\Spells.h" />
     <ClInclude Include="Object\GameObject\GameObject.h" />
     <ClInclude Include="Object\GameObject\Manager\GameObjectManager.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="RogueLike\Door\RL_Door.h" />
+    <ClInclude Include="RogueLike\Menu\DataBase\RL_DataBase.h" />
+    <ClInclude Include="RogueLike\Menu\DungeonMenu\RL_DungeonMenu.h" />
     <ClInclude Include="RogueLike\Menu\MainMenu\RL_MainMenu.h" />
     <ClInclude Include="RogueLike\Menu\MapMenu\RL_MapMenu.h" />
     <ClInclude Include="RogueLike\RogueLike.h" />
     <ClInclude Include="Singleton\Singleton.h" />
     <ClInclude Include="Time\Time.h" />
+    <ClInclude Include="UI\Button\Label\UI_ButtonLabel.h" />
     <ClInclude Include="UI\Button\UI_Button.h" />
     <ClInclude Include="UI\Image\TextureManager\TextureManager.h" />
     <ClInclude Include="UI\Image\UI_Image.h" />
@@ -175,6 +205,7 @@
   <ItemGroup>
     <Object Include="x64\Debug\BaseMenu.obj" />
     <Object Include="x64\Debug\Entity.obj" />
+    <Object Include="x64\Debug\Fireball.obj" />
     <Object Include="x64\Debug\GameObject.obj" />
     <Object Include="x64\Debug\GameObjectManager.obj" />
     <Object Include="x64\Debug\Input.obj" />
@@ -192,6 +223,15 @@
     <Object Include="x64\Debug\UI_Image.obj" />
     <Object Include="x64\Debug\UI_Label.obj" />
     <Object Include="x64\Debug\Window.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="x64\Debug\RogueLike.exe.recipe" />
+    <None Include="x64\Debug\RogueLike.ilk" />
+    <None Include="x64\Debug\vc143.idb" />
+    <None Include="x64\Debug\vc143.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Debug\RogueLike.log" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

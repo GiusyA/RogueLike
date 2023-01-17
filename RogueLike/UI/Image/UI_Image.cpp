@@ -1,12 +1,13 @@
 #include "UI_Image.h"
 #include "../../Window/Window.h"
+#include "TextureManager/TextureManager.h"
 
 #pragma region constructor/destructor
 UI_Image::UI_Image(Window* _owner, const char* _path)
 {
 	sprite = new sf::Sprite();
-
 	texture = new sf::Texture();
+
 	if (!texture->loadFromFile(_path))
 	{
 		Free();

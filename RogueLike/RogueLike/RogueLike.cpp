@@ -1,13 +1,16 @@
 #include "RogueLike.h"
 #include "../Object/GameObject/Manager/GameObjectManager.h"
 #include "Menu/DataBase/RL_DataBase.h"
-#include "Menu/MainMenu/RL_MainMenu.h"
-#include "Menu/MapMenu/RL_MapMenu.h"
 #include "../UI/Button/UI_Button.h"
 #include "../UI/Button/Label/UI_ButtonLabel.h"
+#include "../UI/Label/UI_Label.h"
+#include "../UI/Image/UI_Image.h"
 #include "Door/RL_Door.h"
 #include "../Entity/Player/Player.h"
+#include "../Entity/Monster/Monster.h"
 #include "../Inventory/Inventory.h"
+#include "../Input/Input.h"
+#include "../Inventory/Item/Database/ItemDatabase.h"
 #include <iostream>
 
 #pragma region constructor/destructor
@@ -18,6 +21,8 @@ RogueLike::RogueLike() : Window(600, 600, "Rogue Like", sf::Style::Close)
 
 RogueLike::~RogueLike()
 {
+	delete inventory;
+	inventory = nullptr;
 }
 #pragma endregion constructor/destructor
 
@@ -29,12 +34,25 @@ void RogueLike::Close()
 
 void RogueLike::EnterShop()
 {
+	DestroyMapDoor();
+	CloseAllMenus();
+	sf::Vector2f _position((width / 2) - 25, (height / 2) + 20);
+	player->SetPosition(_position);
 }
 
 void RogueLike::EnterDungeon()
 {
 	DestroyMapDoor();
 	CloseAllMenus();
+	onMap = false;
+	onDung = true;
+
+	sf::Vector2f _position((width / 2) - 25, height - player->GetGlobalBounds().height - 125);
+	player->SetPosition(_position);
+
+	monster = new Monster(this, sf::Vector2f(this->Width() / 2, this->Height() / 2), "Ghost");
+
+	OpenMenu(DUNGEON_MENU);
 }
 
 void RogueLike::LaunchNewGame()
@@ -42,11 +60,47 @@ void RogueLike::LaunchNewGame()
 	CloseAllMenus();
 	onMain = false;
 	onMap = true;
+
 	sf::Vector2f _position((width / 2) + 50, (height / 2) + 20);
-	player = new Player(this, _position);
+	player = new Player(this, _position, "Nom");
+	inventory = new Inventory(this, player->GetName());
+	player->SetInventory(inventory);
+
 	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->ShopDoor()->SetCurrentPlayer(player);
 	dynamic_cast<RL_MapMenu*>(menus[MAP_MENU])->DungeonDoor()->SetCurrentPlayer(player);
+
 	OpenMenu(MAP_MENU);
+}
+
+void RogueLike::UpdateHealPotion()
+{
+	if (inventory->Items()[inventory->FindItem(HEAL_POTION)]->Stack() > 0)
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->HealPotion()->SetTexture("../Assets/Potions/heal.png");
+	else
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->HealPotion()->SetTexture("../Assets/Potions/healgrey.png");
+}
+
+void RogueLike::UpdateManaPotion()
+{
+	if (inventory->Items()[inventory->FindItem(MANA_POTION)]->Stack() > 0)
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->ManaPotion()->SetTexture("../Assets/Potions/mana.png");
+	else
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->ManaPotion()->SetTexture("../Assets/Potions/managrey.png");
+}
+
+void RogueLike::UpdatePotions()
+{
+	UpdateHealPotion();
+	UpdateManaPotion();
+}
+
+void RogueLike::UpdateSpells()
+{
+	if (inventory->Items()[inventory->FindItem(SHIELD)]->Stack() > 0)
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->Shield()->SetTexture("../Assets/Spells/shield.png");
+
+	if (inventory->Items()[inventory->FindItem(GODHEAL)]->Stack() > 0)
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->GodHeal()->SetTexture("../Assets/Spells/godheal.png");
 }
 
 void RogueLike::DestroyMapDoor()
@@ -69,6 +123,9 @@ void RogueLike::InitMenus()
 	_mapMenu->ShopDoor()->OnEnter.SetDynamic(this, &RogueLike::EnterShop);
 	_mapMenu->DungeonDoor()->OnEnter.SetDynamic(this, &RogueLike::EnterDungeon);
 	RegisterMenu(MAP_MENU, _mapMenu);
+
+	RL_DungeonMenu* _dungeonMenu = new RL_DungeonMenu(this);
+	RegisterMenu(DUNGEON_MENU, _dungeonMenu);
 }
 
 void RogueLike::OnDraw()
@@ -103,5 +160,28 @@ void RogueLike::OnUpdate()
 			std::cout << _e.what() << std::endl;
 		}
 	}
+
+	if (onDung)
+	{
+		if (Input::IsKeyDown(sf::Keyboard::Enter))
+		{
+			player->SetIsFighting(true);
+			monster->SetIsFighting(true);
+			dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->LaunchFight()->SetText("");
+		}
+
+		const int _l = player->GetLife();
+		const int _m = player->GetMana();
+		const std::string _life = std::to_string(_l);
+		const std::string _mana = std::to_string(_m);
+
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->Life()->SetText(_life);
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->Mana()->SetText(_mana);
+
+		UpdatePotions();
+		UpdateSpells();
+	}
+	else
+		dynamic_cast<RL_DungeonMenu*>(menus[DUNGEON_MENU])->LaunchFight()->SetText("Press ENTER to fight");
 }
 #pragma endregion override

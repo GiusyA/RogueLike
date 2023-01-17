@@ -7,7 +7,10 @@ class RogueLike : public Window
 private:
 	bool onMain = true;
 	bool onMap = false;
+	bool onDung = false;
 	class Player* player = nullptr;
+	class Inventory* inventory = nullptr;
+	class Monster* monster = nullptr;
 #pragma endregion f/p
 #pragma region constructor/destructor
 public:
@@ -20,6 +23,12 @@ private:
 	void EnterShop();
 	void EnterDungeon();
 	void LaunchNewGame();
+#pragma region Dung
+	void UpdateHealPotion();
+	void UpdateManaPotion();
+	void UpdatePotions();
+	void UpdateSpells();
+#pragma endregion Dung
 #pragma region Map
 	void DestroyMapDoor();
 #pragma endregion Map

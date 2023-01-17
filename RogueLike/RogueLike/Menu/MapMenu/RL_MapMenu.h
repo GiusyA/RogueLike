@@ -17,7 +17,6 @@ public:
 	RL_MapMenu() = default;
 	RL_MapMenu(class Window* _owner);
 	RL_MapMenu(const RL_MapMenu& _copy) = delete;
-	virtual ~RL_MapMenu() override;
 #pragma endregion constructor/destructor
 #pragma region methods
 private:

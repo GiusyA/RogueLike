@@ -3,7 +3,8 @@
 #include "../Window/Window.h"
 
 #pragma region constructor/destructor
-Entity::Entity(class Window* _owner, const char* _path, const sf::Vector2f& _position)
+Entity::Entity(class Window* _owner, const char* _path, const sf::Vector2f& _position, const std::string& _name)
+	: GameObject()
 {
 	image = new UI_Image(_owner, _path);
 	image->SetScale(sf::Vector2f(5.355f, 5.355f));
@@ -13,13 +14,16 @@ Entity::Entity(class Window* _owner, const char* _path, const sf::Vector2f& _pos
 	drawable = image->GetSprite();
 
 	owner = _owner;
+	name = _name;
 }
 
 Entity::Entity(const Entity& _copy)
 {
-	isDead = _copy.isDead;
 	image = _copy.image;
 	owner = _copy.owner;
+	life = _copy.life;
+	attack = _copy.attack;
+	name = _copy.name;
 }
 
 Entity::~Entity()
@@ -36,28 +40,61 @@ Entity::~Entity()
 void Entity::EntityMovementsLimits()
 {
 	sf::Sprite* _sprite = image->GetSprite();
-	const float _x = _sprite->getPosition().x;
 	const float _y = _sprite->getPosition().y;
-
 	const float _maxX = owner->Width() - 15;
-	const float _maxY = owner->Height() - 15;
 
 	if (_sprite->getPosition().x <= 15)
 		image->SetPosition(sf::Vector2f(15, _y));
 
 	if (_sprite->getPosition().x >= _maxX)
 		image->SetPosition(sf::Vector2f(_maxX, _y));
+}
 
-	if (_sprite->getPosition().y <= 15)
-		image->SetPosition(sf::Vector2f(_x, 15));
+void Entity::IsHit(const float _dammage)
+{
+	life -= _dammage;
+	life = (life < 0) ? 0 : life;
+}
 
-	if (_sprite->getPosition().y >= _maxY)
-		image->SetPosition(sf::Vector2f(_x, _maxY));
+void Entity::SetAttack(const float _attack)
+{
+	attack = _attack;
+}
+
+void Entity::SetIsFighting(const bool _value)
+{
+	isFighting = _value;
+}
+
+void Entity::SetLife(const float _life)
+{
+	life = _life;
 }
 
 void Entity::SetPosition(const sf::Vector2f& _position)
 {
 	image->SetPosition(_position);
+}
+
+std::string Entity::GetName() const
+{
+	return name;
+}
+
+float Entity::GetAttack() const
+{
+	return attack;
+}
+
+float Entity::GetLife() const
+{
+	return life;
+}
+
+void Entity::Init()
+{
+	life = 100.0f;
+	attack = 10.0f;
 }
 #pragma endregion methods
 
@@ -66,8 +103,11 @@ void Entity::OnCollisionEnter(GameObject* _other) {}
 
 void Entity::OnUpdate()
 {
-	if (isDead)
+	if (life <= 0)
+	{
+		OnDie.Invoke();
 		return;
+	}
 
 	EntityMovementsLimits();
 }

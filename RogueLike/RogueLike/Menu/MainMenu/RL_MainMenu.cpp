@@ -12,8 +12,6 @@ RL_MainMenu::RL_MainMenu(Window* _owner) : BaseMenu(_owner)
     InitPlayButton();
     InitQuitButton();
 }
-
-RL_MainMenu::~RL_MainMenu() {}
 #pragma endregion constructor/destructor
 
 #pragma region methods

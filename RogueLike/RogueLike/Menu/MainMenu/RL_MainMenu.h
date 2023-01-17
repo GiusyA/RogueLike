@@ -15,7 +15,6 @@ public:
 	RL_MainMenu() = default;
 	RL_MainMenu(class Window* _owner);
 	RL_MainMenu(const RL_MainMenu& _copy) = delete;
-	virtual ~RL_MainMenu() override;
 #pragma endregion constructor/destructor
 #pragma region methods
 private:

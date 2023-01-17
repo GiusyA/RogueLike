@@ -68,6 +68,11 @@ void UI_Label::SetText(const char* _text)
 {
 	text->setString(_text);
 }
+
+void UI_Label::SetText(const std::string& _text)
+{
+	text->setString(_text);
+}
 #pragma endregion methods
 
 #pragma region override
