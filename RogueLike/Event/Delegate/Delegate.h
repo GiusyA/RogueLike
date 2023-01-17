@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Object/Object.h"
 #include <cstddef>
+#include <exception>
 
 //Pointer de fonction d'une autre class d'object
 template<typename Res, typename... Params>

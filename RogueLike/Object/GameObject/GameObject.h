@@ -6,7 +6,7 @@
 class GameObject : public Object
 {
 #pragma region f/p
-private:
+protected:
 	sf::Drawable* drawable = nullptr;
 #pragma endregion f/p
 #pragma region constructor/destructor

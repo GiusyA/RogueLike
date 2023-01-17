@@ -21,22 +21,21 @@ float Entity::SetAttack(const float _attack)
 }
 int Entity::SetLevel(const int _level)
 {
-
 	return level = _level;
 }
 int Entity::GetLevel() const
 {
 	return level;
 }
+bool Entity::IsAttack()
+{
+	return isAttack;
+}
 #pragma endregion setter/Getter
 #pragma region methods
 void Entity::IsHit(const float _dammage)
 {
 	life -=_dammage;
-}
-void Entity::SetPosition(sf::Vector2f _position)
-{
-	sprite->setPosition(_position);
 }
 #pragma endregion methods
 #pragma region overrideS

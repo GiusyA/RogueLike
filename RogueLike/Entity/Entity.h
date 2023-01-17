@@ -1,6 +1,8 @@
 #pragma once
-#include "../Object/GameObject/GameObject.h"
+
 #include "../Event/Delegate/Delegate.h"
+#include "../Screen/Screen.h"
+#include "../Object/ObjectShoot/ObjectShoot.h"
 #include <string>
 //Propriété et caractéristique des entités
 
@@ -17,8 +19,10 @@ protected:
 	sf::Texture* texture = nullptr;
 	float attack = 50.0f;
 	int level = 1;
-	float positionX = 100.0f;
-	float positionY = 100.0f;
+	bool isAttack = false;
+	const float width = SCREEN_WIDTH;
+	const float height = SCREEN_HEIGHT;
+	const float collEntity = COLLENTITY;
 public:
 	Delegate<void> OnDie = nullptr;
 #pragma endregion f/p
@@ -35,15 +39,18 @@ public:
 	float SetAttack(const float _attack);
 	int SetLevel(const int _level);
 	int GetLevel() const;
+	bool IsAttack();
 #pragma endregion setter/Getter
 #pragma region methods
 public:
+	virtual sf::Drawable* GetDrawableProjectile()=0;
 	virtual void Die() =0;
 	virtual void Restart() = 0;
-	virtual void IsHit(const float _dammage);
+	virtual void IsHit(const float _dammage) =0;
 	virtual void Init() = 0;
-	virtual void SetPosition(sf::Vector2f _position);
 	virtual sf::Drawable* GetDrawable() = 0;
+	virtual void Collition() = 0;
+	virtual void Attack() = 0;
 #pragma endregion methods
 #pragma region override
 	void OnUpdate() override =0;

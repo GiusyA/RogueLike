@@ -1,5 +1,6 @@
 #pragma once
 #include "../Object/Object.h"
+#include "../Screen/Screen.h"
 #include <SFML/Graphics.hpp>
 #include <map>
 
@@ -12,8 +13,8 @@ private:
 	const char* title = "Default window";
 	sf::RenderWindow* window = nullptr;
 protected:
-	float width = 900;
-	float height = 800;
+	float width = SCREEN_WIDTH;
+	float height = SCREEN_HEIGHT;
 	std::map<const char*, BaseMenu*> menus = std::map<const char*, BaseMenu*>();
 protected:
 	bool eventIfNotFocus = false;

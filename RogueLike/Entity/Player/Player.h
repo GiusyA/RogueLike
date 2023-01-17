@@ -3,15 +3,17 @@
 #include "../../Event/Delegate/Delegate.h"
 
 class Inventory;
+class Fireball;
 
 class Player :public Entity
 {
 #pragma region f/p
 private:
+	Fireball* fireball = nullptr;
 	Inventory* inventory = nullptr;
 	float mana = 100.0f;
-public:
-	Delegate<void> OnDie = nullptr;
+	bool isGameOver = false;
+	std::vector<Fireball*> fire = std::vector<Fireball*>();
 #pragma endregion f/p
 #pragma region constructor/destructor
 public:
@@ -27,6 +29,8 @@ public:
 #pragma endregion setter/getter
 #pragma region methods
 public:
+	bool IsGameOver();
+	void Action();
 #pragma endregion methods
 #pragma region override
 public:
@@ -37,7 +41,10 @@ public:
 	virtual void Init() override;
 	virtual sf::FloatRect GetGlobalBounds()const override;
 	virtual sf::Vector2f Position()const override;
+	virtual void Collition() override;
+	virtual void Attack() override;
+	virtual void IsHit(const float _dammage) override;
+	virtual sf::Drawable* GetDrawableProjectile() override;
 #pragma endregion override
-
 };
 
