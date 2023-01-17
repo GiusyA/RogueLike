@@ -1,25 +1,94 @@
 #include "Entity.h"
+#include "../UI/Image/UI_Image.h"
+#include "../Window/Window.h"
+#include "../Object/GameObject/Manager/GameObjectManager.h"
 
-Entity::Entity(std::string _name, const float _life)
+#pragma region constructor/destructor
+Entity::Entity(class Window* _owner, const char* _path, const sf::Vector2f& _position) : GameObject()
 {
-	name = _name;
-	life = _life;
+    image = new UI_Image(_owner, _path);
+    image->SetScale(sf::Vector2f(5.355f, 5.355f));
+    sf::Vector2f _updatePos(_position.x - image->GetGlobalBounds().width, _position.y - image->GetGlobalBounds().height);
+    image->SetPosition(_updatePos);
+
+    drawable = image->GetSprite();
+
+    owner = _owner;
 }
 
-std::string Entity::GetName() const
+Entity::Entity(const Entity& _copy)
 {
-	return name;
+    isDead = _copy.isDead;
+    image = _copy.image;
+    owner = _copy.owner;
 }
 
-int Entity::GetLife()
+Entity::~Entity()
 {
-	return life;
+    delete image;
+    image = nullptr;
+
+    delete owner;
+    owner = nullptr;
+}
+#pragma endregion constructor/destructor
+
+#pragma region methods
+void Entity::EntityMovementsLimits()
+{
+    sf::Sprite* _sprite = image->GetSprite();
+    const float _x = _sprite->getPosition().x;
+    const float _y = _sprite->getPosition().y;
+
+    const float _maxX = owner->Width() - 15;
+    const float _maxY = owner->Height() - 15;
+
+    if (_sprite->getPosition().x <= 15)
+        image->SetPosition(sf::Vector2f(15, _y));
+
+    if (_sprite->getPosition().x >= _maxX)
+        image->SetPosition(sf::Vector2f(_maxX, _y));
+
+    if (_sprite->getPosition().y <= 15)
+        image->SetPosition(sf::Vector2f(_x, 15));
+
+    if (_sprite->getPosition().y >= _maxY)
+        image->SetPosition(sf::Vector2f(_x, _maxY));
 }
 
-void Entity::AddLife(float _value)
+void Entity::SetPosition(const sf::Vector2f& _position)
 {
-	int _life = life + _value;
-	if (_life > 100.0f)
-		life = 100.0f;
-	else life = _life;
+    image->SetPosition(_position);
 }
+void Entity::Destroy()
+{
+    GameObjectManager::Instance()->Destroy(this);
+}
+#pragma endregion methods
+
+#pragma region override
+void Entity::OnCollisionEnter(GameObject* _other) {}
+
+void Entity::OnDraw(Window* _window)
+{
+    image->Draw(_window);
+}
+
+void Entity::OnUpdate()
+{
+    if (isDead)
+        return;
+
+    EntityMovementsLimits();
+}
+
+sf::FloatRect Entity::GetGlobalBounds() const
+{
+    return image->GetGlobalBounds();
+}
+
+sf::Vector2f Entity::Position() const
+{
+    return image->GetSprite()->getPosition();
+}
+#pragma endregion override 

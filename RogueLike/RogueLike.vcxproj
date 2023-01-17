@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="RogueLike\Menu\GameOver\GameOverMenu.cpp" />
     <ClCompile Include="Inventory\Item\Spells\GodHeal\GodHeal.cpp" />
     <ClCompile Include="Inventory\Item\Spells\Fireball\Fireball.cpp" />
     <ClCompile Include="Inventory\Item\Potion\Heal\HealPotion.cpp" />
@@ -161,7 +162,8 @@
     <ClCompile Include="Inventory\Item\Spells\Spells.cpp" />
     <ClCompile Include="Inventory\Item\Weapons\Weapons.cpp" />
     <ClCompile Include="Inventory\Item\Spells\Shield\Shield.cpp" />
-    <ClCompile Include="Window\Test\Test.cpp" />
+    <ClCompile Include="RogueLike\RogueLike.cpp" />
+    <ClCompile Include="RogueLike\Menu\ShopMenu\ShopMenu.cpp" />
     <ClCompile Include="UI\Button\UI_Button.cpp" />
     <ClCompile Include="UI\Image\TextureManager\TextureManager.cpp" />
     <ClCompile Include="UI\Image\UI_Image.cpp" />
@@ -175,6 +177,8 @@
     <ClInclude Include="Entity\Entity.h" />
     <ClInclude Include="Event\Delegate\Delegate.h" />
     <ClInclude Include="Event\Event.h" />
+    <ClInclude Include="RogueLike\Menu\GameOver\GameOverMenu.h" />
+    <ClInclude Include="Inventory\Item\Database\ItemDatabase.h" />
     <ClInclude Include="Inventory\Item\Spells\GodHeal\GodHeal.h" />
     <ClInclude Include="Inventory\Item\Spells\Fireball\Fireball.h" />
     <ClInclude Include="Inventory\Item\Potion\Heal\HealPotion.h" />
@@ -190,10 +194,11 @@
     <ClInclude Include="Entity\Player\Player.h" />
     <ClInclude Include="Inventory\Item\Potion\Potion.h" />
     <ClInclude Include="Inventory\Item\Spells\Shield\Shield.h" />
+    <ClInclude Include="RogueLike\RogueLike.h" />
+    <ClInclude Include="RogueLike\Menu\ShopMenu\ShopMenu.h" />
     <ClInclude Include="Singleton\Singleton.h" />
     <ClInclude Include="Inventory\Item\Spells\Spells.h" />
     <ClInclude Include="Inventory\Item\Weapons\Weapons.h" />
-    <ClInclude Include="Window\Test\Test.h" />
     <ClInclude Include="Time\Time.h" />
     <ClInclude Include="UI\Button\UI_Button.h" />
     <ClInclude Include="UI\Image\TextureManager\TextureManager.h" />

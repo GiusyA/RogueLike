@@ -2,7 +2,7 @@
 
 
 Weapons::Weapons(const std::string _texture, const std::string& _name, const float& _damage, const float& _cost)
-	: Item(_texture, _name)
+	: Item(_texture, _name, _cost)
 {
 	name = _name;
 	damage = _damage;

@@ -1,29 +1,31 @@
 #include "Item.h"
 #include "../../Entity/Entity.h"
 #include "../../UI/Image/UI_Image.h"
-
+#include "../../Window/Window.h"
 #pragma region constructor
-Item::Item(const std::string&  _pathTexture, const std::string&  _name, const bool&  _stackable, int _stack, int _maxStack)
+Item::Item(const std::string&  _pathTexture, const std::string&  _name, const bool&  _stackable, const int& _cost, int _stack, int _maxStack) 
+	
 {
 	name = _name;
 	stackable = _stackable;
 	stack = _stack;
 	maxStack = _maxStack;
+	cost = _cost;
+
 
 	sprite = new sf::Sprite();
 	texture = new sf::Texture();
 	sprite->setPosition(0, 0);
-	if (texture->loadFromFile(_pathTexture)) {
-		sprite->setTexture(*texture);
-		drawable = sprite;
-	}
+	if (texture->loadFromFile(_pathTexture)) 
+		sprite->setTexture(*texture);	
 }
 
-Item::Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack) 
-	:Item(_pathTexture, _name, true, 1, _maxStack) { }
+Item::Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack, const int& _cost)
+	:Item(_pathTexture, _name, true, _cost ,1, _maxStack) { }
 
 
-Item::Item(const std::string&  _pathTexture, const std::string& _name) : Item(_pathTexture, _name, false, 1, 1) { }
+Item::Item(const std::string& _pathTexture, const std::string& _name, const int& _cost) :
+	Item(_pathTexture, _name, false, _cost, 1, 1) { }
 
 Item::Item(const Item& _copy)
 {
@@ -31,6 +33,7 @@ Item::Item(const Item& _copy)
 	stackable = _copy.stackable;
 	stack = _copy.stack;
 	maxStack = _copy.maxStack;
+	cost = _copy.cost;
 }
 #pragma endregion constructor
 
@@ -92,6 +95,11 @@ sf::Sprite* Item::GetSprite()
 	return sprite;
 }
 
+int Item::GetCost() const
+{
+	return cost;
+}
+
 void Item::OnUse(Entity* _entity)
 {
 	RemoveStack(1);
@@ -112,12 +120,31 @@ bool Item::Equals(const Item* _item) const
 {
 	return name == _item->name;
 }
-sf::FloatRect Item::GetGlobalBounds() const
+
+void Item::Draw(Window* _window)
 {
-	return sf::FloatRect();
+	_window->Draw(sprite);
 }
-sf::Vector2f Item::Position() const
+
+void Item::SetOrigin(const sf::Vector2f& _origin)
 {
-	return sf::Vector2f();
+	sprite->setOrigin(_origin);
 }
+
+void Item::SetPosition(const sf::Vector2f& _position)
+{
+	sprite->setPosition(_position);
+}
+
+void Item::SetScale(const sf::Vector2f& _scale)
+{
+	sprite->setScale(_scale);
+}
+
+sf::FloatRect Item::GetGlobalBounds()
+{
+	return sprite->getGlobalBounds();
+}
+
+
 #pragma endregion methods

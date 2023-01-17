@@ -75,7 +75,10 @@ void Window::RegisterMenu(const char* _name, BaseMenu* _menu)
 	menus.insert(std::pair(_name, _menu));
 }
 
-void Window::InitMenus() {}
+void Window::InitMenus() 
+{
+
+}
 
 void Window::OnDraw() {}
 

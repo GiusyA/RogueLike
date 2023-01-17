@@ -1,5 +1,7 @@
 #include "GameObjectManager.h"
 #include "../GameObject.h"
+#include "../../../Inventory/Item/Item.h"
+#include <format>
 
 #pragma region methods
 void GameObjectManager::CheckCollision()
@@ -75,6 +77,41 @@ void GameObjectManager::UnRegister(GameObject* _gameObject)
 			break;
 		}
 	}
+}
+Item* GameObjectManager::GetItem(const std::string& _name)
+{
+	for (std::pair<std::string, Item*> _pair : gameItems)
+	{
+		if (_pair.first == _name)
+			return _pair.second;
+	}
+	return nullptr;
+}
+void GameObjectManager::RegisterItem(Item* _item)
+{
+	const std::string _name = _item->GetName();
+	if(GetItem(_name) == nullptr)
+		gameItems.insert(std::pair<std::string, Item*>(_name, _item));
+}
+void GameObjectManager::UnRegisterItem(const Item* _item)
+{
+	int pos = 0;
+	for (std::pair<std::string, Item*> _pair : gameItems)
+	{
+		if (_pair.second == _item) {
+			delete _pair.second;
+			gameItems.erase(_pair.first);
+		}
+		else
+			pos++;
+	}
+}
+std::vector<Item*> GameObjectManager::GetItems() const
+{
+	std::vector<Item*> items = std::vector<Item*>();
+	for (std::pair<std::string, Item*> _pair : gameItems)
+		items.push_back(_pair.second);
+	return items;
 }
 #pragma endregion methods
 

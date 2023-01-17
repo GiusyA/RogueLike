@@ -1,12 +1,13 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "../../Object/GameObject/GameObject.h"
+#include "../../UI/UI_Element.h"
+#include "Database/ItemDatabase.h"
 
 class Entity;
 class UI_Image;
 
-class Item : public GameObject
+class Item : public UI_Element
 {
 #pragma region f/p
 private:
@@ -14,6 +15,7 @@ private:
 	std::string name = "";
 	int stack = 1;
 	int maxStack = 64;
+	int cost = 0;
 	sf::Texture* texture = nullptr;
 	sf::Sprite* sprite = nullptr;
 #pragma endregion f/p
@@ -28,18 +30,18 @@ public:
 	/// <param name="stackable">boolean</param>
 	/// <param name="_stack">int</param>
 	/// <param name="_maxStack">int</param>
-	Item(const std::string& _pathTexture, const std::string& _name, const bool& _stackable, int _stack = 1, int _maxStack = 64);
+	Item(const std::string& _pathTexture, const std::string& _name, const bool& _stackable, const int& _cost, int _stack = 1, int _maxStack = 64);
 	/// <summary>
 	/// Constructor for create an item with name, stackable, and max stack (number of item is 1)
 	/// </summary>
 	/// <param name="_name">string</param>
 	/// <param name="_maxStack">int</param>
-	Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack);
+	Item(const std::string& _pathTexture, const std::string& _name, const int& _maxStack, const int& _cost);
 	/// <summary>
 	/// Create item with just a name and can't be stackable
 	/// </summary>
 	/// <param name="_name">string</param>
-	Item(const std::string& _pathTexture, const std::string& _name);
+	Item(const std::string& _pathTexture, const std::string& _name, const int& _cost);
 	/// <summary>
 	/// Constructor by copy
 	/// </summary>
@@ -99,6 +101,13 @@ public:
 	/// </summary>
 	/// <returns>Sprite*</returns>
 	sf::Sprite* GetSprite();
+
+	/// <summary>
+	/// Get cost of item
+	/// </summary>
+	/// <returns>int</returns>
+	int GetCost() const;
+
 	/// <summary>
 	/// Use the item on an entity
 	/// </summary>
@@ -121,9 +130,20 @@ public:
 	/// <param name="_item">Item*</param>
 	/// <returns>boolean</returns>
 	virtual bool Equals(const Item* _item) const;
+
 #pragma endregion methods
 
-	virtual sf::FloatRect GetGlobalBounds() const override;
-	virtual sf::Vector2f Position() const override;
+
+	// Inherited via UI_Element
+	virtual void Draw(Window* _window) override;
+
+	virtual void SetOrigin(const sf::Vector2f& _origin) override;
+
+	virtual void SetPosition(const sf::Vector2f& _position) override;
+
+	virtual void SetScale(const sf::Vector2f& _scale) override;
+
+	virtual sf::FloatRect GetGlobalBounds() override;
+
 };
 

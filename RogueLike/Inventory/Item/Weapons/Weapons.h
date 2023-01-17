@@ -12,7 +12,7 @@ private:
 #pragma region constructor
 public:
 	Weapons() = default;
-	Weapons(const std::string _texture, const std::string& _name, const float& _damage, const float& _cost);
+	Weapons(const std::string _texture, const std::string& _name,const float& _damage, const float& _cost);
 	Weapons(const Weapons& _copy);
 	~Weapons();
 #pragma endregion constructor

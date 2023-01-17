@@ -5,7 +5,7 @@ class HealPotion : public Potion
 #pragma region constructor
 public:
 	HealPotion() = default;
-	HealPotion(const float _value);
+	HealPotion(const float _value, const int _cost);
 #pragma endregion constructor
 #pragma region methods
 public:

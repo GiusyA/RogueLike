@@ -5,7 +5,7 @@ class ManaPotion : public Potion
 #pragma region constructor
 public:
 	ManaPotion() = default;
-	ManaPotion(const float _value);
+	ManaPotion(const float _value, const int _cost);
 #pragma endregion constructor
 #pragma region methods
 public:

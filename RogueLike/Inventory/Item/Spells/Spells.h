@@ -13,7 +13,7 @@ private:
 #pragma region constructor
 public:
 	Spells() = default;
-	Spells(const std::string _texture, const std::string& _name, const bool& _damage, const float _value, const float _cost);
+	Spells(const std::string _texture, const std::string& _name, const bool& _damage, const float _value, const float _costMana, const int _cost);
 	Spells(const Spells& _copy);
 #pragma endregion constructor
 

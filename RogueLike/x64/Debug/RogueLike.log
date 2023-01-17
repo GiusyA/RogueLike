@@ -1,4 +1,3 @@
-﻿  Test.cpp
-D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(8,13): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-D:\Documents\GitHub\RogueLike\RogueLike\Window\Test\Test.cpp(8,9): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+﻿  RogueLike.cpp
+D:\Documents\GitHub\RogueLike\RogueLike\RogueLike\RogueLike.cpp(32,86): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
   RogueLike.vcxproj -> D:\Documents\GitHub\RogueLike\x64\Debug\RogueLike.exe

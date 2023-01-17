@@ -1,7 +1,7 @@
 #include "GodHeal.h"
 
-GodHeal::GodHeal(const float& _heal, const float& _cost)
-	: Spells("../assets/spells/godheal.png", "God Heal", false, _heal, _cost)
+GodHeal::GodHeal(const float& _heal, const int _cost, const float& _costMana)
+	: Spells("../assets/spells/godheal.png", GODHEAL, false, _heal, _costMana, _cost)
 {
 
 }

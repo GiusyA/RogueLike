@@ -78,9 +78,6 @@
     <ClCompile Include="Inventory\Item\Spells\Fireball\Fireball.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Window\Test\Test.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Inventory\Item\Weapons\Weapons.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -94,6 +91,15 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Inventory\Item\Spells\GodHeal\GodHeal.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\Menu\ShopMenu\ShopMenu.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\RogueLike.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueLike\Menu\GameOver\GameOverMenu.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,9 +179,6 @@
     <ClInclude Include="Inventory\Item\Spells\Fireball\Fireball.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Window\Test\Test.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Inventory\Item\Weapons\Weapons.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -189,6 +192,18 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Inventory\Item\Spells\GodHeal\GodHeal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\Menu\ShopMenu\ShopMenu.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\RogueLike.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory\Item\Database\ItemDatabase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueLike\Menu\GameOver\GameOverMenu.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,19 +1,34 @@
 #pragma once
-#include <string>
-class Entity
+#include "../Object/GameObject/GameObject.h"
+
+class Entity : public GameObject
 {
 #pragma region f/p
-private:
-	std::string name = "";
-	float life = 100.0f;
+protected:
+    bool isDead = false;
+    class UI_Image* image = nullptr;
+    class Window* owner = nullptr;
 #pragma endregion f/p
+#pragma region constructor/destructor
 public:
-	Entity(std::string _name, const float _life);
+    Entity() = default;
+    Entity(Window* _owner, const char* _path, const sf::Vector2f& _position);
+    Entity(const Entity& _copy);
+    virtual ~Entity() override;
+#pragma endregion constructor/destructor
 #pragma region methods
+private:
+    void EntityMovementsLimits();
 public:
-	std::string GetName() const;
-	int GetLife();
-	void AddLife(float _value);
+    void SetPosition(const sf::Vector2f& _position);
+    void Destroy();
 #pragma endregion methods
+#pragma region override
+public:
+    virtual void OnCollisionEnter(GameObject* _other);
+    virtual void OnDraw(class Window* _window);
+    virtual void OnUpdate() override;
+    virtual sf::FloatRect GetGlobalBounds() const override;
+    virtual sf::Vector2f Position() const override;
+#pragma endregion override
 };
-

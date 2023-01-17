@@ -3,7 +3,7 @@
 #include <iostream>
 
 #pragma region constructor
-Potion::Potion(const std::string& _texture, const std::string& _name, const float _value) : Item(_texture, _name, true)
+Potion::Potion(const std::string& _texture, const std::string& _name, const float _value, const int _cost) : Item(_texture, _name, true, _cost)
 {
 	value = _value;
 }

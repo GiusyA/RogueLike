@@ -10,7 +10,7 @@
 Inventory::Inventory(Player* _player)
 {
 	owner = _player;
-	name = "Inventory of " + owner->GetName();
+	//name = "Inventory of " + owner->GetName();
 	money = 0;
 }
 
@@ -160,7 +160,7 @@ std::vector<Item*> Inventory::Items() const
 }
 int Inventory::GetMoney() const
 {
-	return 0;
+	return money;
 }
 void Inventory::AddMoney(const int& _money)
 {

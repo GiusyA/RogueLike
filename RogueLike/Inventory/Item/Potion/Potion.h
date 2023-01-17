@@ -9,7 +9,7 @@ private:
 #pragma region constructor
 public:
 	Potion() = default;
-	Potion(const std::string& _texture, const std::string& _name, const float _value);
+	Potion(const std::string& _texture, const std::string& _name, const float _value, const int _cost);
 	Potion(const Potion& _copy);
 #pragma endregion constructor
 #pragma region methods
